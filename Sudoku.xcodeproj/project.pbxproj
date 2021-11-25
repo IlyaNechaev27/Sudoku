@@ -14,6 +14,7 @@
 		BDFA016E274FF149000A4BDF /* Sudoku.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BDFA016C274FF149000A4BDF /* Sudoku.xcdatamodeld */; };
 		BDFA0170274FF14A000A4BDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDFA016F274FF14A000A4BDF /* Assets.xcassets */; };
 		BDFA0173274FF14A000A4BDF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDFA0171274FF14A000A4BDF /* LaunchScreen.storyboard */; };
+		BDFA017B274FF161000A4BDF /* Sudoku.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFA017A274FF161000A4BDF /* Sudoku.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		BDFA016F274FF14A000A4BDF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BDFA0172274FF14A000A4BDF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BDFA0174274FF14A000A4BDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BDFA017A274FF161000A4BDF /* Sudoku.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sudoku.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				BDFA0171274FF14A000A4BDF /* LaunchScreen.storyboard */,
 				BDFA0174274FF14A000A4BDF /* Info.plist */,
 				BDFA016C274FF149000A4BDF /* Sudoku.xcdatamodeld */,
+				BDFA017A274FF161000A4BDF /* Sudoku.swift */,
 			);
 			path = Sudoku;
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 				BDFA0164274FF149000A4BDF /* AppDelegate.swift in Sources */,
 				BDFA016E274FF149000A4BDF /* Sudoku.xcdatamodeld in Sources */,
 				BDFA0166274FF149000A4BDF /* SceneDelegate.swift in Sources */,
+				BDFA017B274FF161000A4BDF /* Sudoku.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
