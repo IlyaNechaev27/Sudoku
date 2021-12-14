@@ -1,5 +1,6 @@
 import Foundation
 
+
 enum Difficulty: Double {
     case Kid = 0.2
     case Easy = 0.3
@@ -14,21 +15,45 @@ class Sudoku {
     private var puzzle = [[Int]]()
     private var currentAnswer = [[Int]]()
     private let rate: Double
+    private var startPuzzle = [[Int]]()
     
-    init(size: Int, rate: Difficulty) {
-        self.size = size
+    init(rate: Difficulty) {
+        self.size = 3
         self.sideLen = size * size
         self.rate = rate.rawValue
         self.puzzle = generatePuzzle()
         self.currentAnswer = solve()
+        makeCopy()
     }
     
-    func getPuzzle() -> [[Int]] {
+    func numberIsFixedAt(row: Int, col: Int) -> Bool {
+        if startPuzzle[row][col] != 0 {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    // REQUIRED METHOD: Number stored at given row and column, with 0 indicating an empty cell or cell with penciled in values
+    func numberAt(row : Int, col : Int) -> Int {
+        if startPuzzle[row][col] != 0 {
+            return startPuzzle[row][col]
+        } else {
+            return puzzle[row][col]
+        }
+    }
+    
+    // Is the piece a user piece
+    func userEntry(row: Int, col: Int) -> Int {
+        return puzzle[row][col]
+    }
+    
+    func getPuzzle() -> [[Int]]{
         puzzle
     }
     
     func getClue(x: Int, y: Int) {
-        puzzle[x][y] = currentAnswer[x][y]
+         puzzle[x][y] = currentAnswer[x][y]
     }
     
     func isEnd() -> Bool {
@@ -42,6 +67,10 @@ class Sudoku {
         (size * (r % size) + r / size + c) % (size * size)
     }
     
+    private func makeCopy() {
+        startPuzzle = puzzle
+    }
+    
     private func shuffleArray(from a: Int, to b: Int) -> [Int] {
         let range = a..<b
         let array = Array(range)
@@ -53,7 +82,7 @@ class Sudoku {
         var rows: [Int] = []
         for g in shuffleArray(from: 0, to: size) {
             for r in shuffleArray(from: 0, to: size) {
-                rows.append(size * g + r)
+                rows.append(size*g + r)
             }
         }
         
@@ -91,39 +120,55 @@ class Sudoku {
         return board
     }
     
-    func makeMove(x: Int, y: Int, value: Int) -> Bool {
-        let goodMove = checkMove(x: x, y: y, value: value)
-        puzzle[x][y] = value
-        if goodMove, puzzle[x][y] != currentAnswer[x][y] {
+    func isConflictingEntryAt(row: Int, col: Int) -> Bool {
+        var n: Int
+        if startPuzzle[row][col] == 0 {
+            n = puzzle[row][col]
+        } else {
+            n = startPuzzle[row][col]
+        }
+        
+        // if no value exists in entry -- no conflict
+        if n == 0 { return false }
+        
+        let goodMove = checkMove(x: row, y: col, value: n)
+        if goodMove && puzzle[row][col] != currentAnswer[row][col] {
             currentAnswer = solve()
         }
         return goodMove
     }
     
-    func print() {
-        for i in puzzle {
+    func makeMove(x: Int, y: Int, value: Int) -> Bool {
+        let goodMove = checkMove(x: x, y: y, value: value)
+        puzzle[x][y] = value
+        if goodMove && puzzle[x][y] != currentAnswer[x][y] {
+            currentAnswer = solve()
+        }
+        return goodMove
+    }
+    
+    func print(){
+        for i in puzzle{
             Swift.print(i)
         }
     }
-
     func solveAll() {
         puzzle = solve()
     }
-
     func clearCell(x: Int, y: Int) {
         puzzle[x][y] = 0
     }
     
-    private func solve() -> [[Int]] {
+    private func solve() -> [[Int]]{
         var tmp = [[Int]](puzzle)
         return solveInner(_puzzle: &tmp)
     }
     
-    private func solveInner(_puzzle: inout [[Int]]) -> [[Int]] {
+    private func solveInner( _puzzle: inout [[Int]]) -> [[Int]] {
         guard let emptyPos = findEmptyPosition(puzzle: _puzzle) else {
             return _puzzle
         }
-        let (x, y) = emptyPos
+        let (x,y) = emptyPos
         var possibleValues = findPossibleValues(puzzle: _puzzle, x: x, y: y)
         possibleValues.shuffle()
         
@@ -143,11 +188,11 @@ class Sudoku {
             return true
         }
         return checkRow(puzzle: puzzle, x: x, value: value) &&
-            checkCol(puzzle: puzzle, y: y, values: value) &&
-            checkBox(puzzle: puzzle, x: x, y: y, value: value)
+               checkCol(puzzle: puzzle, y: y, values: value) &&
+               checkBox(puzzle: puzzle, x: x, y: y, value: value)
     }
     
-    private func checkRow(puzzle: [[Int]], x: Int, value: Int) -> Bool {
+    private func checkRow(puzzle: [[Int]], x: Int, value: Int) -> Bool{
         !getRow(puzzle: puzzle, x: x).contains(value)
     }
     
@@ -155,7 +200,7 @@ class Sudoku {
         !getCol(puzzle: puzzle, y: y).contains(values)
     }
     
-    private func checkBox(puzzle: [[Int]], x: Int, y: Int, value: Int) -> Bool {
+    private func checkBox(puzzle: [[Int]], x: Int, y: Int, value: Int) -> Bool{
         !getBlock(puzzle: puzzle, x: x, y: y).contains(value)
     }
     
@@ -188,9 +233,9 @@ class Sudoku {
     
     private func findPossibleValues(puzzle: [[Int]], x: Int, y: Int) -> [Int] {
         var possible = Set(1..<sideLen + 1)
-        possible = possible.filter { !getRow(puzzle: puzzle, x: x).contains($0) }
-        possible = possible.filter { !getCol(puzzle: puzzle, y: y).contains($0) }
-        possible = possible.filter { !getBlock(puzzle: puzzle, x: x, y: y).contains($0) }
+        possible = possible.filter({ !getRow(puzzle: puzzle, x: x).contains($0)})
+        possible = possible.filter({ !getCol(puzzle: puzzle, y: y).contains($0)})
+        possible = possible.filter({ !getBlock(puzzle: puzzle, x: x, y: y).contains($0)})
         
         return Array(possible).shuffled()
     }
@@ -199,10 +244,18 @@ class Sudoku {
         for (x, row) in puzzle.enumerated() {
             for (y, v) in row.enumerated() {
                 if v == 0 {
-                    return (x, y)
+                    return (x,y)
                 }
             }
         }
         return nil
     }
 }
+
+
+
+
+
+
+
+
