@@ -10,6 +10,9 @@ enum Difficulty: Double {
 }
 
 class Sudoku {
+    var difficulty: Difficulty
+    private var pencilPuzzle = [[[Bool]]](repeating: [[Bool]](repeating: [Bool](repeating: false, count: 10), count: 9), count: 9)
+    private var inProgress = false
     private var size: Int
     private var sideLen: Int
     private var puzzle = [[Int]]()
@@ -19,11 +22,45 @@ class Sudoku {
     
     init(rate: Difficulty) {
         self.size = 3
+        self.difficulty = rate
         self.sideLen = size * size
         self.rate = rate.rawValue
         self.puzzle = generatePuzzle()
         self.currentAnswer = solve()
         makeCopy()
+    }
+    
+    func isConflictingEntryAt(row: Int, col: Int) -> Bool {
+        puzzle[row][col] == currentAnswer[row][col] ? false : true
+    }
+    func setPencilAt(row: Int, col: Int) -> Bool {
+        for n in 0...8 {
+            if pencilPuzzle[row][col][n] == true {
+                return true
+            }
+        }
+        return false
+    }
+    
+    func printResult() {
+        print(currentAnswer)
+    }
+    func isSetPencil(n: Int, row: Int, col: Int) -> Bool {
+        pencilPuzzle[row][col][n]
+    }
+    
+    // setter - reverse
+    func pencilGrid(n: Int, row: Int, col: Int) {
+        pencilPuzzle[row][col][n] = !pencilPuzzle[row][col][n]
+    }
+    
+    // setter - blank
+    func pencilGridBlank(n: Int, row: Int, col: Int) {
+        pencilPuzzle[row][col][n] = false
+    }
+    
+    func clearPencilPuzzle() {
+        pencilPuzzle = [[[Bool]]] (repeating: [[Bool]] (repeating: [Bool] (repeating: false, count: 10), count: 9), count: 9)
     }
     
     func numberIsFixedAt(row: Int, col: Int) -> Bool {
@@ -34,6 +71,14 @@ class Sudoku {
         }
     }
     
+    func gameInProgress(set: Bool) {
+        inProgress = set
+    }
+    
+    func clearUserPuzzle() {
+        puzzle = startPuzzle
+    }
+    
     // REQUIRED METHOD: Number stored at given row and column, with 0 indicating an empty cell or cell with penciled in values
     func numberAt(row : Int, col : Int) -> Int {
         if startPuzzle[row][col] != 0 {
@@ -41,6 +86,11 @@ class Sudoku {
         } else {
             return puzzle[row][col]
         }
+    }
+    
+    // setter
+    func userGrid(n: Int, row: Int, col: Int) {
+        puzzle[row][col] = n
     }
     
     // Is the piece a user piece
@@ -120,41 +170,24 @@ class Sudoku {
         return board
     }
     
-    func isConflictingEntryAt(row: Int, col: Int) -> Bool {
-        var n: Int
-        if startPuzzle[row][col] == 0 {
-            n = puzzle[row][col]
-        } else {
-            n = startPuzzle[row][col]
+    func clearConflicts() {
+        for row in 0...8 {
+            for col in 0...8 {
+                if isConflictingEntryAt(row: row, col: col) {
+                    puzzle[row][col] = 0
+                }
+            }
         }
-        
-        // if no value exists in entry -- no conflict
-        if n == 0 { return false }
-        
-        let goodMove = checkMove(x: row, y: col, value: n)
-        if goodMove && puzzle[row][col] != currentAnswer[row][col] {
-            currentAnswer = solve()
-        }
-        return goodMove
     }
     
-    func makeMove(x: Int, y: Int, value: Int) -> Bool {
-        let goodMove = checkMove(x: x, y: y, value: value)
+    func makeMove(x: Int, y: Int, value: Int) {
         puzzle[x][y] = value
-        if goodMove && puzzle[x][y] != currentAnswer[x][y] {
-            currentAnswer = solve()
-        }
-        return goodMove
     }
     
-    func print(){
-        for i in puzzle{
-            Swift.print(i)
-        }
-    }
     func solveAll() {
         puzzle = solve()
     }
+    
     func clearCell(x: Int, y: Int) {
         puzzle[x][y] = 0
     }
@@ -184,24 +217,21 @@ class Sudoku {
     }
     
     private func checkMove(x: Int, y: Int, value: Int) -> Bool {
-        if puzzle[x][y] != 0 {
-            return true
-        }
-        return checkRow(puzzle: puzzle, x: x, value: value) &&
-               checkCol(puzzle: puzzle, y: y, values: value) &&
-               checkBox(puzzle: puzzle, x: x, y: y, value: value)
+        checkRow(puzzle: puzzle, x: x, value: value) &&
+        checkCol(puzzle: puzzle, y: y, values: value) &&
+        checkBox(puzzle: puzzle, x: x, y: y, value: value)
     }
     
     private func checkRow(puzzle: [[Int]], x: Int, value: Int) -> Bool{
-        !getRow(puzzle: puzzle, x: x).contains(value)
+        getRow(puzzle: puzzle, x: x).contains(value)
     }
     
     private func checkCol(puzzle: [[Int]], y: Int, values: Int) -> Bool {
-        !getCol(puzzle: puzzle, y: y).contains(values)
+        getCol(puzzle: puzzle, y: y).contains(values)
     }
     
     private func checkBox(puzzle: [[Int]], x: Int, y: Int, value: Int) -> Bool{
-        !getBlock(puzzle: puzzle, x: x, y: y).contains(value)
+        getBlock(puzzle: puzzle, x: x, y: y).contains(value)
     }
     
     private func getRow(puzzle: [[Int]], x: Int) -> [Int] {
@@ -251,11 +281,3 @@ class Sudoku {
         return nil
     }
 }
-
-
-
-
-
-
-
-

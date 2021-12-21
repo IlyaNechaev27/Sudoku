@@ -1,13 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="q8N-jd-3t5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="q8N-jd-3t5">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Info View Controller-->
+        <scene sceneID="htF-Js-cpP">
+            <objects>
+                <viewController id="DMT-hm-mUV" customClass="InfoViewController" customModule="Sudoku" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="33Y-36-hjd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bpM-ZX-fHG">
+                                <rect key="frame" x="114" y="688" width="186" height="80"/>
+                                <color key="backgroundColor" red="0.64313725489999995" green="0.74901960779999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="8Xu-tb-8SW"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="OKAY">
+                                    <fontDescription key="titleFontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="30"/>
+                                    <attributedString key="attributedSubtitle"/>
+                                    <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="okayButtonPressed" destination="DMT-hm-mUV" eventType="touchUpInside" id="V7i-MM-1SL"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sudoku rules" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IHT-2J-1w7">
+                                <rect key="frame" x="98" y="20" width="218" height="39"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BKJ-N4-4UT">
+                                <rect key="frame" x="20" y="146" width="374" height="430"/>
+                                <mutableString key="text">Sudoku is a puzzle based on a small number of very simple rules:
+Every square has to contain a single number
+Only the numbers from 1 through to 9 can be used
+Each 3 × 3 box can only contain each number from 1 to 9 once
+Each vertical column can only contain each number from 1 to 9 once
+Each horizontal row can only contain each number from 1 to 9 once
+Once the puzzle is solved, this means that every row, column, and 3 × 3 box will contain every number from 1 to 9 exactly once.
+In other words, no number can be repeated in any 3 × 3 box, row, or column.</mutableString>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="lMd-Z0-xaF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="lMd-Z0-xaF" firstAttribute="trailing" secondItem="bpM-ZX-fHG" secondAttribute="trailing" constant="114" id="0MA-H2-SuL"/>
+                            <constraint firstItem="IHT-2J-1w7" firstAttribute="leading" secondItem="lMd-Z0-xaF" secondAttribute="leading" constant="98" id="65F-PW-wVb"/>
+                            <constraint firstItem="BKJ-N4-4UT" firstAttribute="leading" secondItem="33Y-36-hjd" secondAttribute="leading" constant="20" id="DlO-pZ-w1s"/>
+                            <constraint firstItem="lMd-Z0-xaF" firstAttribute="bottom" secondItem="bpM-ZX-fHG" secondAttribute="bottom" constant="40" id="Gp9-yT-CjY"/>
+                            <constraint firstItem="IHT-2J-1w7" firstAttribute="top" secondItem="lMd-Z0-xaF" secondAttribute="top" constant="20" id="ZXw-s7-Pe0"/>
+                            <constraint firstItem="BKJ-N4-4UT" firstAttribute="centerY" secondItem="33Y-36-hjd" secondAttribute="centerY" constant="-60" id="f1r-5q-6dE"/>
+                            <constraint firstItem="lMd-Z0-xaF" firstAttribute="trailing" secondItem="IHT-2J-1w7" secondAttribute="trailing" constant="98" id="nmj-hs-bkn"/>
+                            <constraint firstItem="bpM-ZX-fHG" firstAttribute="leading" secondItem="lMd-Z0-xaF" secondAttribute="leading" constant="114" id="qcZ-qd-PBs"/>
+                            <constraint firstAttribute="trailing" secondItem="BKJ-N4-4UT" secondAttribute="trailing" constant="20" id="rfh-SY-j8U"/>
+                            <constraint firstItem="BKJ-N4-4UT" firstAttribute="centerX" secondItem="33Y-36-hjd" secondAttribute="centerX" id="wZB-OQ-eie"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ARK-2y-yW5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1920" y="-828"/>
+        </scene>
         <!--Main Menu-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -16,7 +86,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="GFr-xX-44L" userLabel="Start or Load">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="GFr-xX-44L" userLabel="Start or Load">
                                 <rect key="frame" x="95.5" y="369" width="223.5" height="158"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GTm-8i-amu">
@@ -32,7 +102,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="newGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jKf-qV-VtU"/>
+                                            <segue destination="62P-QH-S7O" kind="show" id="2IZ-Zl-L77"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GCS-EN-uQg">
@@ -48,131 +118,25 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="EVC-Ui-3Bg" userLabel="Difficulty">
-                                <rect key="frame" x="88.5" y="248.5" width="237" height="479"/>
-                                <subviews>
-                                    <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CXy-iu-bTs">
-                                        <rect key="frame" x="0.0" y="0.0" width="237" height="79"/>
-                                        <color key="backgroundColor" red="0.56470588235294117" green="0.6588235294117647" blue="0.8901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="CXy-iu-bTs" secondAttribute="height" multiplier="3:1" id="xLY-Im-PjF"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="KID">
-                                            <fontDescription key="titleFontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="40"/>
-                                            <color key="baseForegroundColor" red="0.035294117647058823" green="0.023529411764705882" blue="0.019607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </buttonConfiguration>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <integer key="value" value="15"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="difficultyButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ycK-D1-Qq1"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vX7-5d-1iX">
-                                        <rect key="frame" x="0.0" y="100" width="237" height="79"/>
-                                        <color key="backgroundColor" red="0.64313725490196072" green="0.74901960784313726" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="EASY">
-                                            <fontDescription key="titleFontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="40"/>
-                                            <color key="baseForegroundColor" systemColor="labelColor"/>
-                                        </buttonConfiguration>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <integer key="value" value="15"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="difficultyButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mGO-3z-EaM"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GZG-Wp-7GG">
-                                        <rect key="frame" x="0.0" y="200" width="237" height="79"/>
-                                        <color key="backgroundColor" red="0.56466126439999997" green="0.65886116029999997" blue="0.89008790250000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="MEDIUM">
-                                            <fontDescription key="titleFontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="40"/>
-                                            <color key="baseForegroundColor" systemColor="labelColor"/>
-                                        </buttonConfiguration>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <integer key="value" value="15"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="difficultyButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OxD-OD-Saz"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYi-vH-Lfs">
-                                        <rect key="frame" x="0.0" y="300" width="237" height="79"/>
-                                        <color key="backgroundColor" red="0.64307624100000005" green="0.74906021359999997" blue="0.85087388750000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="HARD">
-                                            <fontDescription key="titleFontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="40"/>
-                                            <color key="baseForegroundColor" systemColor="labelColor"/>
-                                        </buttonConfiguration>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <integer key="value" value="15"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="difficultyButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gYQ-gR-xtK"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TAD-ir-rIJ">
-                                        <rect key="frame" x="0.0" y="400" width="237" height="79"/>
-                                        <color key="backgroundColor" red="0.56466126439999997" green="0.65886116029999997" blue="0.89008790250000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="IMPOSSIBLE">
-                                            <fontDescription key="titleFontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="40"/>
-                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </buttonConfiguration>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <integer key="value" value="15"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="difficultyButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="g6n-p3-mOR"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="GFr-xX-44L" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="gmX-Xz-38k"/>
                             <constraint firstItem="GFr-xX-44L" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="n0z-Td-n4b"/>
-                            <constraint firstItem="EVC-Ui-3Bg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="40" id="pxU-oe-4dT"/>
-                            <constraint firstItem="EVC-Ui-3Bg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qVn-WD-NCA"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Main Menu" id="1rV-Bl-eQF">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="arrowshape.turn.up.backward.fill" catalog="system" id="Itz-xJ-lRs">
-                            <color key="tintColor" red="0.35686274509999999" green="0.57254901960000004" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <action selector="backButtonPressed:" destination="BYZ-38-t0r" id="0ID-fV-ees"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="info.circle.fill" catalog="system" id="fA0-WT-4pU">
                             <color key="tintColor" red="0.35686274509803922" green="0.5725490196078431" blue="0.79607843137254897" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="DMT-hm-mUV" kind="presentation" id="YvK-DY-LrG"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="backButton" destination="Itz-xJ-lRs" id="eGO-h1-VQy"/>
-                        <outlet property="difficultyStackView" destination="EVC-Ui-3Bg" id="JWP-Cv-XOr"/>
-                        <outlet property="easyButton" destination="vX7-5d-1iX" id="g0N-7t-n8I"/>
-                        <outlet property="hardButton" destination="fYi-vH-Lfs" id="OOg-xy-ErU"/>
-                        <outlet property="impossibleButton" destination="TAD-ir-rIJ" id="s5L-Oh-xl1"/>
-                        <outlet property="kidButton" destination="CXy-iu-bTs" id="3D0-4A-46L"/>
-                        <outlet property="mediumButton" destination="GZG-Wp-7GG" id="MiX-3Q-M8R"/>
-                        <outlet property="startStackView" destination="GFr-xX-44L" id="oqi-VV-KoI"/>
                         <segue destination="fME-Da-J0Y" kind="show" identifier="toPuzzle" id="IvC-bK-KeW"/>
                     </connections>
                 </viewController>
@@ -199,126 +163,147 @@
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n3T-K0-BO8">
-                                <rect key="frame" x="0.0" y="503" width="414" height="310"/>
+                                <rect key="frame" x="0.0" y="542" width="414" height="222"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="E9w-H8-8Cr">
-                                        <rect key="frame" x="10" y="0.0" width="394" height="310"/>
+                                        <rect key="frame" x="10" y="0.0" width="394" height="222"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="ZQa-w0-4Ed">
-                                                <rect key="frame" x="0.0" y="0.0" width="394" height="96.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="394" height="67.5"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="107-RD-n4Z">
-                                                        <rect key="frame" x="0.0" y="0.0" width="93.5" height="96.5"/>
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="107-RD-n4Z">
+                                                        <rect key="frame" x="0.0" y="0.0" width="93.5" height="67.5"/>
+                                                        <color key="backgroundColor" red="0.64313725489999995" green="0.74901960779999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="tintColor" red="0.35686274509999999" green="0.57254901960000004" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="1">
                                                             <fontDescription key="titleFontDescription" type="italicSystem" pointSize="40"/>
                                                             <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </buttonConfiguration>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <integer key="value" value="15"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="keypad:" destination="fME-Da-J0Y" eventType="touchUpInside" id="rLh-7v-PuY"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CaR-Be-ruV">
-                                                        <rect key="frame" x="100.5" y="0.0" width="93" height="96.5"/>
+                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CaR-Be-ruV">
+                                                        <rect key="frame" x="100.5" y="0.0" width="93" height="67.5"/>
+                                                        <color key="backgroundColor" red="0.64313725489999995" green="0.74901960779999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="tintColor" red="0.35686274509999999" green="0.57254901960000004" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="2">
                                                             <fontDescription key="titleFontDescription" type="italicSystem" pointSize="40"/>
                                                             <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </buttonConfiguration>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <integer key="value" value="15"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="keypad:" destination="fME-Da-J0Y" eventType="touchUpInside" id="5ys-Aw-a23"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYa-fu-Y9b">
-                                                        <rect key="frame" x="200.5" y="0.0" width="93.5" height="96.5"/>
+                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYa-fu-Y9b">
+                                                        <rect key="frame" x="200.5" y="0.0" width="93.5" height="67.5"/>
+                                                        <color key="backgroundColor" red="0.64313725489999995" green="0.74901960779999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="tintColor" red="0.35686274509999999" green="0.57254901960000004" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="3">
                                                             <fontDescription key="titleFontDescription" type="italicSystem" pointSize="40"/>
                                                             <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </buttonConfiguration>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <integer key="value" value="15"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="keypad:" destination="fME-Da-J0Y" eventType="touchUpInside" id="eP6-Nc-Rfd"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CwZ-TT-5zK">
-                                                        <rect key="frame" x="301" y="0.0" width="93" height="96.5"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="✍🏻">
-                                                            <fontDescription key="titleFontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="30"/>
-                                                            <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <rect key="frame" x="301" y="0.0" width="93" height="67.5"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="✐">
+                                                            <fontDescription key="titleFontDescription" type="system" pointSize="45"/>
+                                                            <color key="baseForegroundColor" systemColor="labelColor"/>
                                                         </buttonConfiguration>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                 <integer key="value" value="15"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="pencilOn:" destination="fME-Da-J0Y" eventType="touchUpInside" id="TnY-8w-bqX"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="6Kd-Vh-LUK">
-                                                <rect key="frame" x="0.0" y="106.5" width="394" height="97"/>
+                                                <rect key="frame" x="0.0" y="77.5" width="394" height="67"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U8h-2X-9SF">
-                                                        <rect key="frame" x="0.0" y="0.0" width="93.5" height="97"/>
+                                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U8h-2X-9SF">
+                                                        <rect key="frame" x="0.0" y="0.0" width="93.5" height="67"/>
+                                                        <color key="backgroundColor" red="0.64313725489999995" green="0.74901960779999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="tintColor" red="0.35686274509999999" green="0.57254901960000004" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="4">
                                                             <fontDescription key="titleFontDescription" type="italicSystem" pointSize="40"/>
                                                             <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </buttonConfiguration>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <integer key="value" value="15"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="keypad:" destination="fME-Da-J0Y" eventType="touchUpInside" id="kVn-PX-PcG"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lVe-DD-vkk">
-                                                        <rect key="frame" x="100.5" y="0.0" width="93" height="97"/>
+                                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lVe-DD-vkk">
+                                                        <rect key="frame" x="100.5" y="0.0" width="93" height="67"/>
+                                                        <color key="backgroundColor" red="0.64313725489999995" green="0.74901960779999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="tintColor" red="0.35686274509999999" green="0.57254901960000004" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="5">
                                                             <fontDescription key="titleFontDescription" type="italicSystem" pointSize="40"/>
                                                             <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </buttonConfiguration>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <integer key="value" value="15"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="keypad:" destination="fME-Da-J0Y" eventType="touchUpInside" id="ynO-No-lkx"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4xo-Ny-Lzt">
-                                                        <rect key="frame" x="200.5" y="0.0" width="93.5" height="97"/>
+                                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4xo-Ny-Lzt">
+                                                        <rect key="frame" x="200.5" y="0.0" width="93.5" height="67"/>
+                                                        <color key="backgroundColor" red="0.64313725489999995" green="0.74901960779999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="tintColor" red="0.35686274509999999" green="0.57254901960000004" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="6">
                                                             <fontDescription key="titleFontDescription" type="italicSystem" pointSize="40"/>
                                                             <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </buttonConfiguration>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Quk-47-ajt">
-                                                        <rect key="frame" x="301" y="0.0" width="93" height="97"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="🙅🏻‍♂️">
-                                                            <fontDescription key="titleFontDescription" type="system" pointSize="30"/>
-                                                        </buttonConfiguration>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                 <integer key="value" value="15"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="keypad:" destination="fME-Da-J0Y" eventType="touchUpInside" id="ecQ-HH-bow"/>
+                                                        </connections>
                                                     </button>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="nhl-vI-yfK">
-                                                <rect key="frame" x="0.0" y="213.5" width="394" height="96.5"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ljx-oQ-bIQ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="93.5" height="96.5"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Quk-47-ajt">
+                                                        <rect key="frame" x="301" y="0.0" width="93" height="67"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="7">
-                                                            <fontDescription key="titleFontDescription" type="italicSystem" pointSize="40"/>
-                                                            <color key="baseForegroundColor" red="0.035294117649999998" green="0.023529411760000001" blue="0.019607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </buttonConfiguration>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZS8-KE-uD0">
-                                                        <rect key="frame" x="100.5" y="0.0" width="93" height="96.5"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="8">
-                                                            <fontDescription key="titleFontDescription" type="italicSystem" pointSize="40"/>
-                                                            <color key="baseForegroundColor" red="0.035294117649999998" green="0.023529411760000001" blue="0.019607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </buttonConfiguration>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BFl-eB-WBE">
-                                                        <rect key="frame" x="200.5" y="0.0" width="93.5" height="96.5"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="9">
-                                                            <fontDescription key="titleFontDescription" type="italicSystem" pointSize="40"/>
-                                                            <color key="baseForegroundColor" red="0.035294117649999998" green="0.023529411760000001" blue="0.019607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </buttonConfiguration>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kup-qt-RrC">
-                                                        <rect key="frame" x="301" y="0.0" width="93" height="96.5"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="👨🏻‍🔧">
-                                                            <fontDescription key="titleFontDescription" type="system" pointSize="30"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="🆇">
+                                                            <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="45"/>
                                                             <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </buttonConfiguration>
                                                         <userDefinedRuntimeAttributes>
@@ -326,13 +311,90 @@
                                                                 <integer key="value" value="15"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="deleteNumber:" destination="fME-Da-J0Y" eventType="touchUpInside" id="8Nt-Tr-JGd"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="nhl-vI-yfK">
+                                                <rect key="frame" x="0.0" y="154.5" width="394" height="67.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ljx-oQ-bIQ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="93.5" height="67.5"/>
+                                                        <color key="backgroundColor" red="0.64313725489999995" green="0.74901960779999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="tintColor" red="0.35686274509999999" green="0.57254901960000004" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="7">
+                                                            <fontDescription key="titleFontDescription" type="italicSystem" pointSize="40"/>
+                                                            <color key="baseForegroundColor" red="0.035294117649999998" green="0.023529411760000001" blue="0.019607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </buttonConfiguration>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <integer key="value" value="15"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="keypad:" destination="fME-Da-J0Y" eventType="touchUpInside" id="EPC-m7-4fV"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZS8-KE-uD0">
+                                                        <rect key="frame" x="100.5" y="0.0" width="93" height="67.5"/>
+                                                        <color key="backgroundColor" red="0.64313725489999995" green="0.74901960779999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="tintColor" red="0.35686274509999999" green="0.57254901960000004" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="8">
+                                                            <fontDescription key="titleFontDescription" type="italicSystem" pointSize="40"/>
+                                                            <color key="baseForegroundColor" red="0.035294117649999998" green="0.023529411760000001" blue="0.019607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </buttonConfiguration>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <integer key="value" value="15"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="keypad:" destination="fME-Da-J0Y" eventType="touchUpInside" id="mMb-Eo-ylh"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BFl-eB-WBE">
+                                                        <rect key="frame" x="200.5" y="0.0" width="93.5" height="67.5"/>
+                                                        <color key="backgroundColor" red="0.64313725489999995" green="0.74901960779999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="tintColor" red="0.35686274509999999" green="0.57254901960000004" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="9">
+                                                            <fontDescription key="titleFontDescription" type="italicSystem" pointSize="40"/>
+                                                            <color key="baseForegroundColor" red="0.035294117649999998" green="0.023529411760000001" blue="0.019607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </buttonConfiguration>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <integer key="value" value="15"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="keypad:" destination="fME-Da-J0Y" eventType="touchUpInside" id="qNC-GV-1q1"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kup-qt-RrC">
+                                                        <rect key="frame" x="301" y="0.0" width="93" height="67.5"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="⌘">
+                                                            <fontDescription key="titleFontDescription" type="system" pointSize="45"/>
+                                                            <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </buttonConfiguration>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <integer key="value" value="15"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="mainMenu:" destination="fME-Da-J0Y" eventType="touchUpInside" id="XZH-om-lM2"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.64313725489999995" green="0.74901960779999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="E9w-H8-8Cr" firstAttribute="leading" secondItem="n3T-K0-BO8" secondAttribute="leading" constant="10" id="CJA-2x-NS1"/>
                                     <constraint firstItem="E9w-H8-8Cr" firstAttribute="top" secondItem="n3T-K0-BO8" secondAttribute="top" id="V2t-s8-l7d"/>
@@ -349,17 +411,26 @@
                             <constraint firstItem="h2g-Nh-Pzt" firstAttribute="leading" secondItem="vQk-xY-3PJ" secondAttribute="leading" id="EWe-BQ-7ph"/>
                             <constraint firstItem="n3T-K0-BO8" firstAttribute="leading" secondItem="vQk-xY-3PJ" secondAttribute="leading" id="IAA-S8-N5t"/>
                             <constraint firstItem="h2g-Nh-Pzt" firstAttribute="trailing" secondItem="vQk-xY-3PJ" secondAttribute="trailing" id="Zfn-fw-trN"/>
-                            <constraint firstItem="n3T-K0-BO8" firstAttribute="top" secondItem="h2g-Nh-Pzt" secondAttribute="bottom" constant="1" id="kcI-C4-HIM"/>
+                            <constraint firstItem="n3T-K0-BO8" firstAttribute="top" secondItem="h2g-Nh-Pzt" secondAttribute="bottom" constant="40" id="kcI-C4-HIM"/>
                             <constraint firstItem="n3T-K0-BO8" firstAttribute="bottom" secondItem="vQk-xY-3PJ" secondAttribute="bottom" id="ytk-F8-auY"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Puzzle" id="rcd-v0-eA7">
-                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="807-3K-Hgb">
+                        <barButtonItem key="leftBarButtonItem" title="00 : 00 : 00" id="0oj-iS-PYh">
                             <color key="tintColor" red="0.35686274509999999" green="0.57254901960000004" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="807-3K-Hgb">
+                            <color key="tintColor" red="0.35686274509999999" green="0.57254901960000004" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="leavePuzzle:" destination="fME-Da-J0Y" id="juW-MU-2fi"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="puzzleView" destination="h2g-Nh-Pzt" id="NTC-W4-E2W"/>
+                        <outlet property="timerLabel" destination="0oj-iS-PYh" id="8OP-Wt-utR"/>
+                        <segue destination="cl7-RD-y22" kind="show" identifier="showResult" id="sSX-lq-dsW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="57f-yP-2Tr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -369,7 +440,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2104" y="84"/>
+            <point key="canvasLocation" x="2928.985507246377" y="82.366071428571431"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Mba-pR-Tob">
@@ -393,10 +464,225 @@
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="83.705357142857139"/>
         </scene>
+        <!--Result View Controller-->
+        <scene sceneID="Grq-fx-e2J">
+            <objects>
+                <viewController id="cl7-RD-y22" customClass="ResultViewController" customModule="Sudoku" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kr0-as-EOy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DW8-Xf-9ov">
+                                <rect key="frame" x="60" y="88" width="294" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="jfd-Sc-rXU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CAX-BX-A14">
+                                <rect key="frame" x="114" y="736" width="186" height="80"/>
+                                <color key="backgroundColor" red="0.64313725489999995" green="0.74901960779999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="q3V-jI-6Y8"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="START NEW">
+                                    <fontDescription key="titleFontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="30"/>
+                                    <attributedString key="attributedSubtitle"/>
+                                    <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="okayButtonPressed" destination="DMT-hm-mUV" eventType="touchUpInside" id="9yW-Ln-nac"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E4h-Zz-v4k">
+                                <rect key="frame" x="57" y="248" width="300" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="Kj4-8D-YD6"/>
+                                    <constraint firstAttribute="width" constant="300" id="sgG-0v-Jtw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="fFN-zn-ED1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fFN-zn-ED1" firstAttribute="trailing" secondItem="DW8-Xf-9ov" secondAttribute="trailing" constant="60" id="Dib-4I-jNm"/>
+                            <constraint firstItem="DW8-Xf-9ov" firstAttribute="top" secondItem="fFN-zn-ED1" secondAttribute="top" id="Imn-KP-XeB"/>
+                            <constraint firstItem="E4h-Zz-v4k" firstAttribute="centerX" secondItem="kr0-as-EOy" secondAttribute="centerX" id="RbT-d6-yLi"/>
+                            <constraint firstItem="DW8-Xf-9ov" firstAttribute="leading" secondItem="fFN-zn-ED1" secondAttribute="leading" constant="60" id="phE-he-llj"/>
+                            <constraint firstItem="E4h-Zz-v4k" firstAttribute="centerY" secondItem="kr0-as-EOy" secondAttribute="centerY" constant="-100" id="rbC-gk-0cq"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="CAX-BX-A14"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="r6V-HI-g7w">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="8P7-Em-kaO">
+                            <color key="tintColor" red="0.35686274509999999" green="0.57254901960000004" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="dismis:" destination="cl7-RD-y22" id="5u7-Vx-DEg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="textLabel" destination="E4h-Zz-v4k" id="lC0-qv-D4k"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l0j-uY-szB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3749" y="84"/>
+        </scene>
+        <!--Difficulty View Controller-->
+        <scene sceneID="r5k-B5-GY6">
+            <objects>
+                <viewController id="62P-QH-S7O" customClass="DifficultyViewController" customModule="Sudoku" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xch-pI-TUk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="V3x-gq-gRm" userLabel="Difficulty">
+                                <rect key="frame" x="88.5" y="208.5" width="237" height="479"/>
+                                <subviews>
+                                    <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tbw-ta-H3O">
+                                        <rect key="frame" x="0.0" y="0.0" width="237" height="79"/>
+                                        <color key="backgroundColor" red="0.56470588239999997" green="0.6588235294" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Tbw-ta-H3O" secondAttribute="height" multiplier="3:1" id="LPc-UT-m7p"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="KID">
+                                            <fontDescription key="titleFontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="40"/>
+                                            <color key="baseForegroundColor" red="0.035294117649999998" green="0.023529411760000001" blue="0.019607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </buttonConfiguration>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="difficultyButtonPressed:" destination="62P-QH-S7O" eventType="touchUpInside" id="V3Y-bd-mVw"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2RQ-Mc-whV">
+                                        <rect key="frame" x="0.0" y="100" width="237" height="79"/>
+                                        <color key="backgroundColor" red="0.64313725489999995" green="0.74901960779999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="EASY">
+                                            <fontDescription key="titleFontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="40"/>
+                                            <color key="baseForegroundColor" systemColor="labelColor"/>
+                                        </buttonConfiguration>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="difficultyButtonPressed:" destination="62P-QH-S7O" eventType="touchUpInside" id="j4m-sw-gai"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wfA-re-Rdj">
+                                        <rect key="frame" x="0.0" y="200" width="237" height="79"/>
+                                        <color key="backgroundColor" red="0.56466126439999997" green="0.65886116029999997" blue="0.89008790250000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="MEDIUM">
+                                            <fontDescription key="titleFontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="40"/>
+                                            <color key="baseForegroundColor" systemColor="labelColor"/>
+                                        </buttonConfiguration>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="difficultyButtonPressed:" destination="62P-QH-S7O" eventType="touchUpInside" id="QiY-N0-Zlx"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ihP-59-atJ">
+                                        <rect key="frame" x="0.0" y="300" width="237" height="79"/>
+                                        <color key="backgroundColor" red="0.64307624100000005" green="0.74906021359999997" blue="0.85087388750000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="HARD">
+                                            <fontDescription key="titleFontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="40"/>
+                                            <color key="baseForegroundColor" systemColor="labelColor"/>
+                                        </buttonConfiguration>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="difficultyButtonPressed:" destination="62P-QH-S7O" eventType="touchUpInside" id="gmK-fN-Mca"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7hy-Rp-HKH">
+                                        <rect key="frame" x="0.0" y="400" width="237" height="79"/>
+                                        <color key="backgroundColor" red="0.56466126439999997" green="0.65886116029999997" blue="0.89008790250000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="IMPOSSIBLE">
+                                            <fontDescription key="titleFontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="40"/>
+                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="difficultyButtonPressed:" destination="62P-QH-S7O" eventType="touchUpInside" id="7DC-6S-5eP"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ybp-Jp-ppm"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="V3x-gq-gRm" firstAttribute="centerY" secondItem="xch-pI-TUk" secondAttribute="centerY" id="0Cb-zD-Z8i"/>
+                            <constraint firstItem="V3x-gq-gRm" firstAttribute="centerX" secondItem="xch-pI-TUk" secondAttribute="centerX" id="wvw-uD-iB8"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="qtC-zO-aWs">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="info.circle.fill" catalog="system" id="h29-5l-sDZ">
+                            <color key="tintColor" red="0.35686274509999999" green="0.57254901960000004" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="DMT-hm-mUV" kind="presentation" id="tbe-oI-aFY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="easyButton" destination="2RQ-Mc-whV" id="bBv-G1-1r1"/>
+                        <outlet property="hardButton" destination="ihP-59-atJ" id="Ndi-OO-g8t"/>
+                        <outlet property="impossibleButton" destination="7hy-Rp-HKH" id="41t-7f-CZy"/>
+                        <outlet property="kidButton" destination="Tbw-ta-H3O" id="afV-7A-PoY"/>
+                        <outlet property="mediumButton" destination="wfA-re-Rdj" id="JPt-VU-3Fb"/>
+                        <segue destination="fME-Da-J0Y" kind="show" identifier="toPuzzle" id="BA3-If-iLU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="adr-tW-kvm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1970" y="546"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="IvC-bK-KeW"/>
+        <segue reference="YvK-DY-LrG"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.35686274509999999" green="0.57254901960000004" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
-        <image name="arrowshape.turn.up.backward.fill" catalog="system" width="128" height="106"/>
         <image name="info.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

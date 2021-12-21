@@ -49,8 +49,6 @@ class SudokuView: UIView {
         let delta = gridSize/3
         let d = delta/3
         
-        
-        
         //
         // Fill selected cell (is one is selected).
         //
@@ -106,18 +104,18 @@ class SudokuView: UIView {
         //
         let fontName = "Helvetica"
         let boldFontName = "Helvetica-Bold"
-//        let pencilFontName = "Helvetica-Light"
+        let pencilFontName = "Helvetica-Light"
         
         let fontSize = fontSizeFor("0", fontName: boldFontName, targetSize: CGSize(width: d, height: d))
         
         let boldFont = UIFont(name: boldFontName, size: fontSize)
         let font = UIFont(name: fontName, size: fontSize)
-//        let pencilFont = UIFont(name: pencilFontName, size: fontSize/3)
+        let pencilFont = UIFont(name: pencilFontName, size: fontSize/3)
         
         let fixedAttributes = [NSAttributedString.Key.font : boldFont!, NSAttributedString.Key.foregroundColor : UIColor.black]
         let userAttributes = [NSAttributedString.Key.font : font!, NSAttributedString.Key.foregroundColor : UIColor.blue]
         let conflictAttributes = [NSAttributedString.Key.font : font!, NSAttributedString.Key.foregroundColor : UIColor.red]
-        //        let pencilAttributes = [NSAttributedString.Key.font : pencilFont!, NSAttributedString.Key.foregroundColor : UIColor.black]
+        let pencilAttributes = [NSAttributedString.Key.font : pencilFont!, NSAttributedString.Key.foregroundColor : UIColor.black]
         
         //
         // Fill in puzzle numbers.
@@ -146,6 +144,20 @@ class SudokuView: UIView {
                     let y = gridOrigin.y + CGFloat(row)*d + 0.5*(d - textSize.height)
                     let textRect = CGRect(x: x, y: y, width: textSize.width, height: textSize.height)
                     text.draw(in: textRect, withAttributes: attributes)
+                } else if sudoku.setPencilAt(row: row, col: col) {
+                    let s = d/3
+                    for n in 1 ... 9 {
+                        if sudoku.isSetPencil(n: n, row: row, col: col) {
+                            let r = (n - 1) / 3
+                            let c = (n - 1) % 3
+                            let text : NSString = "\(n)" as NSString
+                            let textSize = text.size(withAttributes: pencilAttributes)
+                            let x = gridOrigin.x + CGFloat(col)*d + CGFloat(c)*s + 0.5*(s - textSize.width)
+                            let y = gridOrigin.y + CGFloat(row)*d + CGFloat(r)*s + 0.5*(s - textSize.height)
+                            let textRect = CGRect(x: x, y: y, width: textSize.width, height: textSize.height)
+                            text.draw(in: textRect, withAttributes: pencilAttributes)
+                        }
+                    }
                 }
             }
         }
