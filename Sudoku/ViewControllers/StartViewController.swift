@@ -9,9 +9,15 @@ import UIKit
 
 class StartViewController: UIViewController {
     
+    @IBOutlet weak var gifView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        gifView.loadGif(name: "load")
     }
+    
+    
+    
     
     @IBAction func loadGame(_ sender: UIButton) {
         if StorageManager.sudokuModel == nil {

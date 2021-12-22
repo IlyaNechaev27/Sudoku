@@ -18,7 +18,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bpM-ZX-fHG">
                                 <rect key="frame" x="114" y="688" width="186" height="80"/>
-                                <color key="backgroundColor" red="0.64313725489999995" green="0.74901960779999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.47058826679999999" green="0.15686275059999999" blue="0.91764706370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="8Xu-tb-8SW"/>
                                 </constraints>
@@ -26,7 +26,7 @@
                                 <buttonConfiguration key="configuration" style="plain" title="OKAY">
                                     <fontDescription key="titleFontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="30"/>
                                     <attributedString key="attributedSubtitle"/>
-                                    <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="baseForegroundColor" systemColor="systemGroupedBackgroundColor"/>
                                 </buttonConfiguration>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -45,14 +45,14 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BKJ-N4-4UT">
                                 <rect key="frame" x="20" y="146" width="374" height="430"/>
-                                <mutableString key="text">Sudoku is a puzzle based on a small number of very simple rules:
+                                <string key="text">Sudoku is a puzzle based on a small number of very simple rules:
 Every square has to contain a single number
 Only the numbers from 1 through to 9 can be used
 Each 3 × 3 box can only contain each number from 1 to 9 once
 Each vertical column can only contain each number from 1 to 9 once
 Each horizontal row can only contain each number from 1 to 9 once
 Once the puzzle is solved, this means that every row, column, and 3 × 3 box will contain every number from 1 to 9 exactly once.
-In other words, no number can be repeated in any 3 × 3 box, row, or column.</mutableString>
+In other words, no number can be repeated in any 3 × 3 box, row, or column.</string>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -86,15 +86,21 @@ In other words, no number can be repeated in any 3 × 3 box, row, or column.</mu
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3ri-0p-Hcj">
+                                <rect key="frame" x="0.0" y="88" width="414" height="313"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="3ri-0p-Hcj" secondAttribute="height" multiplier="414:313" id="lVC-4c-v5o"/>
+                                </constraints>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="GFr-xX-44L" userLabel="Start or Load">
-                                <rect key="frame" x="95.5" y="369" width="223.5" height="158"/>
+                                <rect key="frame" x="95.5" y="429" width="223.5" height="158"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GTm-8i-amu">
                                         <rect key="frame" x="0.0" y="0.0" width="223.5" height="66"/>
-                                        <color key="backgroundColor" red="0.64313725490196072" green="0.74901960784313726" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.47058826679999999" green="0.15686275059999999" blue="0.91764706370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <buttonConfiguration key="configuration" style="plain" title="NEW GAME">
                                             <fontDescription key="titleFontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="40"/>
-                                            <color key="baseForegroundColor" systemColor="labelColor"/>
+                                            <color key="baseForegroundColor" systemColor="tertiarySystemBackgroundColor"/>
                                         </buttonConfiguration>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -122,14 +128,17 @@ In other words, no number can be repeated in any 3 × 3 box, row, or column.</mu
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="GFr-xX-44L" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="gmX-Xz-38k"/>
+                            <constraint firstItem="3ri-0p-Hcj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="EqC-t1-iqy"/>
+                            <constraint firstItem="3ri-0p-Hcj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="KsI-CM-5EZ"/>
+                            <constraint firstItem="GFr-xX-44L" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="60" id="gmX-Xz-38k"/>
+                            <constraint firstItem="3ri-0p-Hcj" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="lwS-q4-RXQ"/>
                             <constraint firstItem="GFr-xX-44L" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="n0z-Td-n4b"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Main Menu" id="1rV-Bl-eQF">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="info.circle.fill" catalog="system" id="fA0-WT-4pU">
-                            <color key="tintColor" red="0.35686274509803922" green="0.5725490196078431" blue="0.79607843137254897" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" red="0.47058826679999999" green="0.15686275059999999" blue="0.91764706370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <segue destination="DMT-hm-mUV" kind="presentation" id="YvK-DY-LrG"/>
                             </connections>
@@ -137,12 +146,13 @@ In other words, no number can be repeated in any 3 × 3 box, row, or column.</mu
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="gifView" destination="3ri-0p-Hcj" id="2Ry-WL-I3F"/>
                         <segue destination="fME-Da-J0Y" kind="show" identifier="toPuzzle" id="IvC-bK-KeW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1040.8" y="83.208395802098963"/>
+            <point key="canvasLocation" x="1039.1304347826087" y="83.035714285714278"/>
         </scene>
         <!--Puzzle-->
         <scene sceneID="hqp-H2-6MU">
@@ -173,12 +183,12 @@ In other words, no number can be repeated in any 3 × 3 box, row, or column.</mu
                                                 <subviews>
                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="107-RD-n4Z">
                                                         <rect key="frame" x="0.0" y="0.0" width="93.5" height="67.5"/>
-                                                        <color key="backgroundColor" red="0.64313725489999995" green="0.74901960779999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" red="0.51372549019607838" green="0.12549019607843137" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <color key="tintColor" red="0.35686274509999999" green="0.57254901960000004" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="1">
-                                                            <fontDescription key="titleFontDescription" type="italicSystem" pointSize="40"/>
-                                                            <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="40"/>
+                                                            <color key="baseForegroundColor" systemColor="secondarySystemBackgroundColor"/>
                                                         </buttonConfiguration>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -191,12 +201,12 @@ In other words, no number can be repeated in any 3 × 3 box, row, or column.</mu
                                                     </button>
                                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CaR-Be-ruV">
                                                         <rect key="frame" x="100.5" y="0.0" width="93" height="67.5"/>
-                                                        <color key="backgroundColor" red="0.64313725489999995" green="0.74901960779999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" red="0.51374006270000006" green="0.12557312849999999" blue="0.9528322816" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <color key="tintColor" red="0.35686274509999999" green="0.57254901960000004" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="2">
-                                                            <fontDescription key="titleFontDescription" type="italicSystem" pointSize="40"/>
-                                                            <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="40"/>
+                                                            <color key="baseForegroundColor" systemColor="secondarySystemBackgroundColor"/>
                                                         </buttonConfiguration>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -209,12 +219,12 @@ In other words, no number can be repeated in any 3 × 3 box, row, or column.</mu
                                                     </button>
                                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYa-fu-Y9b">
                                                         <rect key="frame" x="200.5" y="0.0" width="93.5" height="67.5"/>
-                                                        <color key="backgroundColor" red="0.64313725489999995" green="0.74901960779999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" red="0.51374006270000006" green="0.12557312849999999" blue="0.9528322816" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <color key="tintColor" red="0.35686274509999999" green="0.57254901960000004" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="3">
-                                                            <fontDescription key="titleFontDescription" type="italicSystem" pointSize="40"/>
-                                                            <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="40"/>
+                                                            <color key="baseForegroundColor" systemColor="secondarySystemBackgroundColor"/>
                                                         </buttonConfiguration>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -247,12 +257,12 @@ In other words, no number can be repeated in any 3 × 3 box, row, or column.</mu
                                                 <subviews>
                                                     <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U8h-2X-9SF">
                                                         <rect key="frame" x="0.0" y="0.0" width="93.5" height="67"/>
-                                                        <color key="backgroundColor" red="0.64313725489999995" green="0.74901960779999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" red="0.51374006270000006" green="0.12557312849999999" blue="0.9528322816" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <color key="tintColor" red="0.35686274509999999" green="0.57254901960000004" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="4">
-                                                            <fontDescription key="titleFontDescription" type="italicSystem" pointSize="40"/>
-                                                            <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="40"/>
+                                                            <color key="baseForegroundColor" systemColor="secondarySystemBackgroundColor"/>
                                                         </buttonConfiguration>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -265,12 +275,12 @@ In other words, no number can be repeated in any 3 × 3 box, row, or column.</mu
                                                     </button>
                                                     <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lVe-DD-vkk">
                                                         <rect key="frame" x="100.5" y="0.0" width="93" height="67"/>
-                                                        <color key="backgroundColor" red="0.64313725489999995" green="0.74901960779999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" red="0.51374006270000006" green="0.12557312849999999" blue="0.9528322816" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <color key="tintColor" red="0.35686274509999999" green="0.57254901960000004" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="5">
-                                                            <fontDescription key="titleFontDescription" type="italicSystem" pointSize="40"/>
-                                                            <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="40"/>
+                                                            <color key="baseForegroundColor" systemColor="secondarySystemBackgroundColor"/>
                                                         </buttonConfiguration>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -283,12 +293,12 @@ In other words, no number can be repeated in any 3 × 3 box, row, or column.</mu
                                                     </button>
                                                     <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4xo-Ny-Lzt">
                                                         <rect key="frame" x="200.5" y="0.0" width="93.5" height="67"/>
-                                                        <color key="backgroundColor" red="0.64313725489999995" green="0.74901960779999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" red="0.51374006270000006" green="0.12557312849999999" blue="0.9528322816" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <color key="tintColor" red="0.35686274509999999" green="0.57254901960000004" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="6">
-                                                            <fontDescription key="titleFontDescription" type="italicSystem" pointSize="40"/>
-                                                            <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="40"/>
+                                                            <color key="baseForegroundColor" systemColor="secondarySystemBackgroundColor"/>
                                                         </buttonConfiguration>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -322,12 +332,12 @@ In other words, no number can be repeated in any 3 × 3 box, row, or column.</mu
                                                 <subviews>
                                                     <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ljx-oQ-bIQ">
                                                         <rect key="frame" x="0.0" y="0.0" width="93.5" height="67.5"/>
-                                                        <color key="backgroundColor" red="0.64313725489999995" green="0.74901960779999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" red="0.51374006270000006" green="0.12557312849999999" blue="0.9528322816" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <color key="tintColor" red="0.35686274509999999" green="0.57254901960000004" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="7">
-                                                            <fontDescription key="titleFontDescription" type="italicSystem" pointSize="40"/>
-                                                            <color key="baseForegroundColor" red="0.035294117649999998" green="0.023529411760000001" blue="0.019607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="40"/>
+                                                            <color key="baseForegroundColor" systemColor="secondarySystemBackgroundColor"/>
                                                         </buttonConfiguration>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -340,12 +350,12 @@ In other words, no number can be repeated in any 3 × 3 box, row, or column.</mu
                                                     </button>
                                                     <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZS8-KE-uD0">
                                                         <rect key="frame" x="100.5" y="0.0" width="93" height="67.5"/>
-                                                        <color key="backgroundColor" red="0.64313725489999995" green="0.74901960779999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" red="0.51374006270000006" green="0.12557312849999999" blue="0.9528322816" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <color key="tintColor" red="0.35686274509999999" green="0.57254901960000004" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="8">
-                                                            <fontDescription key="titleFontDescription" type="italicSystem" pointSize="40"/>
-                                                            <color key="baseForegroundColor" red="0.035294117649999998" green="0.023529411760000001" blue="0.019607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="40"/>
+                                                            <color key="baseForegroundColor" systemColor="secondarySystemBackgroundColor"/>
                                                         </buttonConfiguration>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -358,12 +368,12 @@ In other words, no number can be repeated in any 3 × 3 box, row, or column.</mu
                                                     </button>
                                                     <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BFl-eB-WBE">
                                                         <rect key="frame" x="200.5" y="0.0" width="93.5" height="67.5"/>
-                                                        <color key="backgroundColor" red="0.64313725489999995" green="0.74901960779999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" red="0.51374006270000006" green="0.12557312849999999" blue="0.9528322816" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <color key="tintColor" red="0.35686274509999999" green="0.57254901960000004" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="9">
-                                                            <fontDescription key="titleFontDescription" type="italicSystem" pointSize="40"/>
-                                                            <color key="baseForegroundColor" red="0.035294117649999998" green="0.023529411760000001" blue="0.019607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="40"/>
+                                                            <color key="baseForegroundColor" systemColor="secondarySystemBackgroundColor"/>
                                                         </buttonConfiguration>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -417,10 +427,10 @@ In other words, no number can be repeated in any 3 × 3 box, row, or column.</mu
                     </view>
                     <navigationItem key="navigationItem" title="Puzzle" id="rcd-v0-eA7">
                         <barButtonItem key="leftBarButtonItem" title="00 : 00 : 00" id="0oj-iS-PYh">
-                            <color key="tintColor" red="0.35686274509999999" green="0.57254901960000004" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" red="0.58535464599999998" green="0.12557312849999999" blue="0.9528322816" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="stop" id="807-3K-Hgb">
-                            <color key="tintColor" red="0.35686274509999999" green="0.57254901960000004" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" red="0.58431988950000002" green="0.1255845726" blue="0.95283216240000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="leavePuzzle:" destination="fME-Da-J0Y" id="juW-MU-2fi"/>
                             </connections>
@@ -512,12 +522,21 @@ In other words, no number can be repeated in any 3 × 3 box, row, or column.</mu
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yAH-DL-LwD">
+                                <rect key="frame" x="0.0" y="456" width="414" height="440"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="yAH-DL-LwD" secondAttribute="height" multiplier="207:220" id="ejB-Dw-TdD"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fFN-zn-ED1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="yAH-DL-LwD" secondAttribute="bottom" id="BDd-Dp-D8I"/>
+                            <constraint firstItem="yAH-DL-LwD" firstAttribute="trailing" secondItem="fFN-zn-ED1" secondAttribute="trailing" id="Bsd-st-NFv"/>
                             <constraint firstItem="fFN-zn-ED1" firstAttribute="trailing" secondItem="DW8-Xf-9ov" secondAttribute="trailing" constant="60" id="Dib-4I-jNm"/>
                             <constraint firstItem="DW8-Xf-9ov" firstAttribute="top" secondItem="fFN-zn-ED1" secondAttribute="top" id="Imn-KP-XeB"/>
+                            <constraint firstItem="yAH-DL-LwD" firstAttribute="leading" secondItem="fFN-zn-ED1" secondAttribute="leading" id="OkH-c5-MBd"/>
                             <constraint firstItem="E4h-Zz-v4k" firstAttribute="centerX" secondItem="kr0-as-EOy" secondAttribute="centerX" id="RbT-d6-yLi"/>
                             <constraint firstItem="DW8-Xf-9ov" firstAttribute="leading" secondItem="fFN-zn-ED1" secondAttribute="leading" constant="60" id="phE-he-llj"/>
                             <constraint firstItem="E4h-Zz-v4k" firstAttribute="centerY" secondItem="kr0-as-EOy" secondAttribute="centerY" constant="-100" id="rbC-gk-0cq"/>
@@ -529,20 +548,21 @@ In other words, no number can be repeated in any 3 × 3 box, row, or column.</mu
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="r6V-HI-g7w">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="8P7-Em-kaO">
-                            <color key="tintColor" red="0.35686274509999999" green="0.57254901960000004" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="8P7-Em-kaO">
+                            <color key="tintColor" red="0.58431988950000002" green="0.1255845726" blue="0.95283216240000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="dismis:" destination="cl7-RD-y22" id="5u7-Vx-DEg"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="gifView" destination="yAH-DL-LwD" id="fJi-ql-wiJ"/>
                         <outlet property="textLabel" destination="E4h-Zz-v4k" id="lC0-qv-D4k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l0j-uY-szB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3749" y="84"/>
+            <point key="canvasLocation" x="3747.826086956522" y="83.705357142857139"/>
         </scene>
         <!--Difficulty View Controller-->
         <scene sceneID="r5k-B5-GY6">
@@ -557,14 +577,14 @@ In other words, no number can be repeated in any 3 × 3 box, row, or column.</mu
                                 <subviews>
                                     <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tbw-ta-H3O">
                                         <rect key="frame" x="0.0" y="0.0" width="237" height="79"/>
-                                        <color key="backgroundColor" red="0.56470588239999997" green="0.6588235294" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.28765740909455784" green="0.43532770869999998" blue="0.96067255740000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Tbw-ta-H3O" secondAttribute="height" multiplier="3:1" id="LPc-UT-m7p"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="KID">
                                             <fontDescription key="titleFontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="40"/>
-                                            <color key="baseForegroundColor" red="0.035294117649999998" green="0.023529411760000001" blue="0.019607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="baseForegroundColor" systemColor="systemGroupedBackgroundColor"/>
                                         </buttonConfiguration>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -577,11 +597,11 @@ In other words, no number can be repeated in any 3 × 3 box, row, or column.</mu
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2RQ-Mc-whV">
                                         <rect key="frame" x="0.0" y="100" width="237" height="79"/>
-                                        <color key="backgroundColor" red="0.64313725489999995" green="0.74901960779999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.40643900428639457" green="0.43532961609999998" blue="0.96067255740000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="EASY">
                                             <fontDescription key="titleFontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="40"/>
-                                            <color key="baseForegroundColor" systemColor="labelColor"/>
+                                            <color key="baseForegroundColor" systemColor="secondarySystemBackgroundColor"/>
                                         </buttonConfiguration>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -594,11 +614,11 @@ In other words, no number can be repeated in any 3 × 3 box, row, or column.</mu
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wfA-re-Rdj">
                                         <rect key="frame" x="0.0" y="200" width="237" height="79"/>
-                                        <color key="backgroundColor" red="0.56466126439999997" green="0.65886116029999997" blue="0.89008790250000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.47058823529411764" green="0.43529411764705883" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="MEDIUM">
                                             <fontDescription key="titleFontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="40"/>
-                                            <color key="baseForegroundColor" systemColor="labelColor"/>
+                                            <color key="baseForegroundColor" systemColor="systemGroupedBackgroundColor"/>
                                         </buttonConfiguration>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -611,11 +631,11 @@ In other words, no number can be repeated in any 3 × 3 box, row, or column.</mu
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ihP-59-atJ">
                                         <rect key="frame" x="0.0" y="300" width="237" height="79"/>
-                                        <color key="backgroundColor" red="0.64307624100000005" green="0.74906021359999997" blue="0.85087388750000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.51374006270000006" green="0.36289774584693879" blue="0.95979444146394555" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="HARD">
                                             <fontDescription key="titleFontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="40"/>
-                                            <color key="baseForegroundColor" systemColor="labelColor"/>
+                                            <color key="baseForegroundColor" systemColor="secondarySystemBackgroundColor"/>
                                         </buttonConfiguration>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -628,11 +648,11 @@ In other words, no number can be repeated in any 3 × 3 box, row, or column.</mu
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7hy-Rp-HKH">
                                         <rect key="frame" x="0.0" y="400" width="237" height="79"/>
-                                        <color key="backgroundColor" red="0.56466126439999997" green="0.65886116029999997" blue="0.89008790250000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.51374006270000006" green="0.12557312849999999" blue="0.9528322816" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="IMPOSSIBLE">
                                             <fontDescription key="titleFontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="40"/>
-                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="baseForegroundColor" systemColor="systemGroupedBackgroundColor"/>
                                         </buttonConfiguration>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -656,7 +676,7 @@ In other words, no number can be repeated in any 3 × 3 box, row, or column.</mu
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="qtC-zO-aWs">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="info.circle.fill" catalog="system" id="h29-5l-sDZ">
-                            <color key="tintColor" red="0.35686274509999999" green="0.57254901960000004" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" red="0.47058826679999999" green="0.15686275059999999" blue="0.91764706370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <segue destination="DMT-hm-mUV" kind="presentation" id="tbe-oI-aFY"/>
                             </connections>
@@ -678,8 +698,8 @@ In other words, no number can be repeated in any 3 × 3 box, row, or column.</mu
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="IvC-bK-KeW"/>
-        <segue reference="YvK-DY-LrG"/>
+        <segue reference="BA3-If-iLU"/>
+        <segue reference="tbe-oI-aFY"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.35686274509999999" green="0.57254901960000004" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
@@ -687,7 +707,16 @@ In other words, no number can be repeated in any 3 × 3 box, row, or column.</mu
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiarySystemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>

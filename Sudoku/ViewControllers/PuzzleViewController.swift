@@ -115,6 +115,10 @@ class PuzzleViewController: UIViewController {
             self.refresh()
         }))
         
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Solve all", comment: "Default action"), style: .default, handler: { _ in
+            self.performSegue(withIdentifier: "showResult", sender: nil)
+        }))
+        
         // Clear all
         alert.addAction(UIAlertAction(title: NSLocalizedString("Clear All", comment: ""), style: .default, handler: { _ in
         

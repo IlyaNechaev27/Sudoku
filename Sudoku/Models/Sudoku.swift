@@ -202,7 +202,7 @@ public class Sudoku: NSObject, NSCoding {
     }
     
     func solveAll() {
-        puzzle = solve()
+        puzzle = currentAnswer
     }
     
     func clearCell(x: Int, y: Int) {

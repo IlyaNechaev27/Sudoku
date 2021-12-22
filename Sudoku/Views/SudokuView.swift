@@ -53,7 +53,7 @@ class SudokuView: UIView {
         // Fill selected cell (is one is selected).
         //
         if selected.row >= 0 && selected.col >= 0 {
-            UIColor(hexString: "5b92cb").setFill()
+            UIColor(hexString: "786FF5").setFill()
             let x = gridOrigin.x + CGFloat(selected.col)*d
             let y = gridOrigin.y + CGFloat(selected.row)*d
             context?.fill(CGRect(x: x, y: y, width: d, height: d))
@@ -63,7 +63,7 @@ class SudokuView: UIView {
         // Stroke outer puzzle rectangle
         //
         context?.setLineWidth(6)
-        UIColor(hexString: "5b92cb").setStroke()
+        UIColor(hexString: "786FF5").setStroke()
         context?.stroke(CGRect(x: gridOrigin.x, y: gridOrigin.y, width: gridSize, height: gridSize))
         
         
