@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD37AA5127732D88004B7E15 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD37AA5027732D88004B7E15 /* AlertController.swift */; };
+		BD37AA5327732D9E004B7E15 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD37AA5227732D9E004B7E15 /* UIColor.swift */; };
 		BD381AB7276A02FD00A8299D /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD381AB6276A02FD00A8299D /* ResultViewController.swift */; };
 		BD451F0E277269FB00A539EA /* DifficultyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD451F0D277269FB00A539EA /* DifficultyViewController.swift */; };
-		BD451F1227726AE300A539EA /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD451F1127726AE300A539EA /* Extension.swift */; };
+		BD512B5A2773C2AE00BD0BC5 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD512B592773C2AE00BD0BC5 /* StorageManager.swift */; };
 		BD60B248276925110012A60A /* SudokuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD60B247276925110012A60A /* SudokuView.swift */; };
 		BD60B24E276966CE0012A60A /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD60B24D276966CE0012A60A /* InfoViewController.swift */; };
 		BDCC911A2767B5A500230B2A /* PuzzleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCC91192767B5A500230B2A /* PuzzleViewController.swift */; };
@@ -23,9 +25,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BD37AA5027732D88004B7E15 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
+		BD37AA5227732D9E004B7E15 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		BD381AB6276A02FD00A8299D /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		BD451F0D277269FB00A539EA /* DifficultyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyViewController.swift; sourceTree = "<group>"; };
-		BD451F1127726AE300A539EA /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		BD512B592773C2AE00BD0BC5 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		BD60B247276925110012A60A /* SudokuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudokuView.swift; sourceTree = "<group>"; };
 		BD60B24D276966CE0012A60A /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		BDCC91192767B5A500230B2A /* PuzzleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleViewController.swift; sourceTree = "<group>"; };
@@ -54,9 +58,36 @@
 		BD451F1327726AF200A539EA /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				BD451F1127726AE300A539EA /* Extension.swift */,
+				BD37AA5027732D88004B7E15 /* AlertController.swift */,
+				BD37AA5227732D9E004B7E15 /* UIColor.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BD512B5B2773CAF300BD0BC5 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				BDFA0174274FF14A000A4BDF /* Info.plist */,
+				BDFA0163274FF149000A4BDF /* AppDelegate.swift */,
+				BDFA0165274FF149000A4BDF /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		BD512B5C2773CB1400BD0BC5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BDFA016F274FF14A000A4BDF /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		BD512B5D2773CB3600BD0BC5 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				BD512B592773C2AE00BD0BC5 /* StorageManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		BDCC911B2767B5B000230B2A /* ViewControllers */ = {
@@ -120,10 +151,9 @@
 				BDCC911C2767B5C600230B2A /* Views */,
 				BDCC911E2767B5F400230B2A /* Storyboards */,
 				BD451F1327726AF200A539EA /* Extensions */,
-				BDFA0163274FF149000A4BDF /* AppDelegate.swift */,
-				BDFA0165274FF149000A4BDF /* SceneDelegate.swift */,
-				BDFA016F274FF14A000A4BDF /* Assets.xcassets */,
-				BDFA0174274FF14A000A4BDF /* Info.plist */,
+				BD512B5B2773CAF300BD0BC5 /* App */,
+				BD512B5C2773CB1400BD0BC5 /* Resources */,
+				BD512B5D2773CB3600BD0BC5 /* Managers */,
 			);
 			path = Sudoku;
 			sourceTree = "<group>";
@@ -202,11 +232,13 @@
 				BDFA0168274FF149000A4BDF /* StartViewController.swift in Sources */,
 				BD451F0E277269FB00A539EA /* DifficultyViewController.swift in Sources */,
 				BD60B248276925110012A60A /* SudokuView.swift in Sources */,
+				BD512B5A2773C2AE00BD0BC5 /* StorageManager.swift in Sources */,
 				BDFA0164274FF149000A4BDF /* AppDelegate.swift in Sources */,
-				BD451F1227726AE300A539EA /* Extension.swift in Sources */,
 				BDFA0166274FF149000A4BDF /* SceneDelegate.swift in Sources */,
 				BDCC911A2767B5A500230B2A /* PuzzleViewController.swift in Sources */,
 				BD60B24E276966CE0012A60A /* InfoViewController.swift in Sources */,
+				BD37AA5327732D9E004B7E15 /* UIColor.swift in Sources */,
+				BD37AA5127732D88004B7E15 /* AlertController.swift in Sources */,
 				BDFA017B274FF161000A4BDF /* Sudoku.swift in Sources */,
 				BD381AB7276A02FD00A8299D /* ResultViewController.swift in Sources */,
 			);
@@ -374,7 +406,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -402,7 +434,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

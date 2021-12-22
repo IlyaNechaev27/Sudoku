@@ -1,8 +1,8 @@
 //
-//  Extension.swift
+//  UIColor.swift
 //  Sudoku
 //
-//  Created by Илья Нечаев on 21.12.2021.
+//  Created by Илья Нечаев on 22.12.2021.
 //
 
 import Foundation

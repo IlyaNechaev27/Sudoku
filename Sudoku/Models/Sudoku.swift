@@ -1,7 +1,7 @@
 import Foundation
 
 
-enum Difficulty: Double {
+enum Difficulty: Double, Decodable {
     case Kid = 0.2
     case Easy = 0.3
     case Medium = 0.4
@@ -9,22 +9,43 @@ enum Difficulty: Double {
     case Impossible = 0.6
 }
 
-class Sudoku {
+public class Sudoku: NSObject, NSCoding {
+    public func encode(with coder: NSCoder) {
+        coder.encode(difficulty.rawValue, forKey: "dif")
+        coder.encode(pencilPuzzle, forKey: "pen")
+        coder.encode(size, forKey: "size")
+        coder.encode(sideLen, forKey: "side")
+        coder.encode(puzzle, forKey: "puzzle")
+        coder.encode(currentAnswer, forKey: "current")
+        coder.encode(rate, forKey: "rate")
+        coder.encode(startPuzzle, forKey: "start")
+    }
+    
+    public required init?(coder: NSCoder) {
+        difficulty = coder.decodeObject(forKey: "dif") as? Difficulty ?? .Kid
+        pencilPuzzle = coder.decodeObject(forKey: "pen") as? [[[Bool]]] ?? [[[]]]
+        size = coder.decodeObject(forKey: "size") as? Int ?? 3
+        sideLen = coder.decodeObject(forKey: "side") as? Int ?? 9
+        puzzle = coder.decodeObject(forKey: "puzzle") as? [[Int]] ?? [[]]
+        currentAnswer = coder.decodeObject(forKey: "current") as? [[Int]] ?? [[]]
+        rate = coder.decodeObject(forKey: "rate") as? Double ?? 0.5
+        startPuzzle = coder.decodeObject(forKey: "start") as? [[Int]] ?? [[]]
+    }
+    
     var difficulty: Difficulty
+    
     private var pencilPuzzle = [[[Bool]]](repeating: [[Bool]](repeating: [Bool](repeating: false, count: 10), count: 9), count: 9)
-    private var inProgress = false
-    private var size: Int
-    private var sideLen: Int
+    private var size = 3
+    private var sideLen = 9
     private var puzzle = [[Int]]()
     private var currentAnswer = [[Int]]()
     private let rate: Double
     private var startPuzzle = [[Int]]()
     
     init(rate: Difficulty) {
-        self.size = 3
         self.difficulty = rate
-        self.sideLen = size * size
         self.rate = rate.rawValue
+        super.init()
         self.puzzle = generatePuzzle()
         self.currentAnswer = solve()
         makeCopy()
@@ -69,10 +90,6 @@ class Sudoku {
         } else {
             return false
         }
-    }
-    
-    func gameInProgress(set: Bool) {
-        inProgress = set
     }
     
     func clearUserPuzzle() {
