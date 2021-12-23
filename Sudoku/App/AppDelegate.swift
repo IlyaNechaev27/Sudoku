@@ -9,7 +9,7 @@ import UIKit
 import Foundation
 import CoreData
 
-@main
+    @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?

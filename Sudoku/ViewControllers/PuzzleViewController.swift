@@ -30,7 +30,7 @@ class PuzzleViewController: UIViewController {
         timerLabel.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Arial", size: 20)!], for: UIControl.State.normal)
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
         navigationItem.setHidesBackButton(true, animated: true)
-
+        
         isPencilOn = false
         puzzleView.sudoku = sudoku
     }
@@ -86,17 +86,24 @@ class PuzzleViewController: UIViewController {
     }
     
     @IBAction func deleteNumber(_ sender: UIButton) {
+        
         let row = puzzleView.selected.row
         let col = puzzleView.selected.col
         
-        if sudoku.getPuzzle()[row][col] != 0 {
-            sudoku.userGrid(n: 0, row: row, col: col)
+        if row == -1, col == -1 {
+            presentAlert(withTitle: "Warning", message: "No puzzle cell selected")
+            
+        } else {
+            
+            if sudoku.getPuzzle()[row][col] != 0 {
+                sudoku.userGrid(n: 0, row: row, col: col)
+            }
+            
+            for i in 0 ... 9 {
+                sudoku.pencilGridBlank(n: i, row: row, col: col)
+            }
+            refresh()
         }
-        
-        for i in 0 ... 9 {
-            sudoku.pencilGridBlank(n: i, row: row, col: col)
-        }
-        refresh()
     }
     
     @IBAction func pencilOn(_ sender: UIButton) {
@@ -120,7 +127,6 @@ class PuzzleViewController: UIViewController {
         
         // Clear all
         alert.addAction(UIAlertAction(title: NSLocalizedString("Clear All", comment: ""), style: .default, handler: { _ in
-        
             self.sudoku.clearUserPuzzle()
             self.sudoku.clearPencilPuzzle()
             self.refresh()
@@ -128,16 +134,23 @@ class PuzzleViewController: UIViewController {
         
         // Get clue
         alert.addAction(UIAlertAction(title: NSLocalizedString("Get Clue", comment: ""), style: .default, handler: { _ in
-            if self.clueCount != 0 {
-                self.clueCount -= 1
-                let row = self.puzzleView.selected.row
-                let col = self.puzzleView.selected.col
-                self.sudoku.getClue(x: row, y: col)
-                self.refresh()
+            let row = self.puzzleView.selected.row
+            let col = self.puzzleView.selected.col
+            if row == -1, col == -1 {
+                self.presentAlert(withTitle: "Warning", message: "No puzzle cell selected")
             } else {
-                let clueAlert = UIAlertController(title: "You have no more clues left", message: "", preferredStyle: .alert)
-                clueAlert.addAction(UIAlertAction(title: "OK", style: .default))
-                self.present(clueAlert, animated: true)
+                
+                if self.clueCount != 0 {
+                    self.clueCount -= 1
+                    let row = self.puzzleView.selected.row
+                    let col = self.puzzleView.selected.col
+                    self.sudoku.getClue(x: row, y: col)
+                    self.refresh()
+                } else {
+                    let clueAlert = UIAlertController(title: "You have no more clues left", message: "", preferredStyle: .alert)
+                    clueAlert.addAction(UIAlertAction(title: "OK", style: .default))
+                    self.present(clueAlert, animated: true)
+                }
             }
         }))
         
@@ -174,10 +187,21 @@ class PuzzleViewController: UIViewController {
     }
     
     // MARK: Prepare for segue
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let resultVC = segue.destination as? ResultViewController else { return }
         resultVC.timer = timerLabel.title
         resultVC.difficulty = sudoku.difficulty
+    }
+}
+
+extension PuzzleViewController {
+    
+    func presentAlert(withTitle title: String, message : String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let OKAction = UIAlertAction(title: "OK", style: .default) { action in
+        }
+        alertController.addAction(OKAction)
+        self.present(alertController, animated: true, completion: nil)
     }
 }
