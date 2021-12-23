@@ -43,40 +43,60 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BKJ-N4-4UT">
-                                <rect key="frame" x="20" y="146" width="374" height="430"/>
-                                <string key="text">Sudoku is a puzzle based on a small number of very simple rules:
-Every square has to contain a single number
-Only the numbers from 1 through to 9 can be used
-Each 3 × 3 box can only contain each number from 1 to 9 once
-Each vertical column can only contain each number from 1 to 9 once
-Each horizontal row can only contain each number from 1 to 9 once
-Once the puzzle is solved, this means that every row, column, and 3 × 3 box will contain every number from 1 to 9 exactly once.
-In other words, no number can be repeated in any 3 × 3 box, row, or column.</string>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="b0C-Uu-8Wd">
+                                <rect key="frame" x="40" y="99" width="334" height="517.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sudoku is a puzzle based on a small number of very simple rules:" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="97B-iC-vhD">
+                                        <rect key="frame" x="0.0" y="0.0" width="334" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BKJ-N4-4UT">
+                                        <rect key="frame" x="0.0" y="61" width="334" height="263"/>
+                                        <mutableString key="text">- Every square has to contain a single number
+- Only the numbers from 1 through to 9 can be used
+- Each 3 × 3 box can only contain each number from 1 to 9 once
+- Each vertical column can only contain each number from 1 to 9 once
+- Each horizontal row can only contain each number from 1 to 9 once
+</mutableString>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Once the puzzle is solved, this means that every row, column, and 3 × 3 box will contain every number from 1 to 9 exactly once." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nwp-16-i60">
+                                        <rect key="frame" x="0.0" y="337" width="334" height="95.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In other words, no number can be repeated in any 3 × 3 box, row, or column." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="007-VL-Vk1">
+                                        <rect key="frame" x="0.0" y="445.5" width="334" height="72"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lMd-Z0-xaF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="lMd-Z0-xaF" firstAttribute="trailing" secondItem="bpM-ZX-fHG" secondAttribute="trailing" constant="114" id="0MA-H2-SuL"/>
                             <constraint firstItem="IHT-2J-1w7" firstAttribute="leading" secondItem="lMd-Z0-xaF" secondAttribute="leading" constant="98" id="65F-PW-wVb"/>
-                            <constraint firstItem="BKJ-N4-4UT" firstAttribute="leading" secondItem="33Y-36-hjd" secondAttribute="leading" constant="20" id="DlO-pZ-w1s"/>
                             <constraint firstItem="lMd-Z0-xaF" firstAttribute="bottom" secondItem="bpM-ZX-fHG" secondAttribute="bottom" constant="40" id="Gp9-yT-CjY"/>
+                            <constraint firstAttribute="trailing" secondItem="b0C-Uu-8Wd" secondAttribute="trailing" constant="40" id="MZ0-5n-oDF"/>
                             <constraint firstItem="IHT-2J-1w7" firstAttribute="top" secondItem="lMd-Z0-xaF" secondAttribute="top" constant="20" id="ZXw-s7-Pe0"/>
-                            <constraint firstItem="BKJ-N4-4UT" firstAttribute="centerY" secondItem="33Y-36-hjd" secondAttribute="centerY" constant="-60" id="f1r-5q-6dE"/>
                             <constraint firstItem="lMd-Z0-xaF" firstAttribute="trailing" secondItem="IHT-2J-1w7" secondAttribute="trailing" constant="98" id="nmj-hs-bkn"/>
+                            <constraint firstItem="b0C-Uu-8Wd" firstAttribute="top" secondItem="IHT-2J-1w7" secondAttribute="bottom" constant="40" id="nr2-77-N5M"/>
                             <constraint firstItem="bpM-ZX-fHG" firstAttribute="leading" secondItem="lMd-Z0-xaF" secondAttribute="leading" constant="114" id="qcZ-qd-PBs"/>
-                            <constraint firstAttribute="trailing" secondItem="BKJ-N4-4UT" secondAttribute="trailing" constant="20" id="rfh-SY-j8U"/>
-                            <constraint firstItem="BKJ-N4-4UT" firstAttribute="centerX" secondItem="33Y-36-hjd" secondAttribute="centerX" id="wZB-OQ-eie"/>
+                            <constraint firstItem="b0C-Uu-8Wd" firstAttribute="leading" secondItem="lMd-Z0-xaF" secondAttribute="leading" constant="40" id="vnL-tw-XJl"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ARK-2y-yW5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1920" y="-828"/>
+            <point key="canvasLocation" x="1918.840579710145" y="-828.34821428571422"/>
         </scene>
         <!--Main Menu-->
         <scene sceneID="tne-QT-ifu">
@@ -89,7 +109,7 @@ In other words, no number can be repeated in any 3 × 3 box, row, or column.</st
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3ri-0p-Hcj">
                                 <rect key="frame" x="0.0" y="88" width="414" height="313"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="3ri-0p-Hcj" secondAttribute="height" multiplier="414:313" id="lVC-4c-v5o"/>
+                                    <constraint firstAttribute="width" secondItem="3ri-0p-Hcj" secondAttribute="height" multiplier="414:313" id="g2Y-Xs-pe4"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="GFr-xX-44L" userLabel="Start or Load">
@@ -97,7 +117,7 @@ In other words, no number can be repeated in any 3 × 3 box, row, or column.</st
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GTm-8i-amu">
                                         <rect key="frame" x="0.0" y="0.0" width="223.5" height="66"/>
-                                        <color key="backgroundColor" red="0.47058826679999999" green="0.15686275059999999" blue="0.91764706370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.47058823529411764" green="0.15686274509803921" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <buttonConfiguration key="configuration" style="plain" title="NEW GAME">
                                             <fontDescription key="titleFontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="40"/>
                                             <color key="baseForegroundColor" systemColor="tertiarySystemBackgroundColor"/>
@@ -483,42 +503,8 @@ In other words, no number can be repeated in any 3 × 3 box, row, or column.</st
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DW8-Xf-9ov">
-                                <rect key="frame" x="60" y="88" width="294" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="jfd-Sc-rXU"/>
-                                </constraints>
+                                <rect key="frame" x="40" y="128" width="334" height="43.5"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="40"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CAX-BX-A14">
-                                <rect key="frame" x="114" y="736" width="186" height="80"/>
-                                <color key="backgroundColor" red="0.64313725489999995" green="0.74901960779999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="q3V-jI-6Y8"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="START NEW">
-                                    <fontDescription key="titleFontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="30"/>
-                                    <attributedString key="attributedSubtitle"/>
-                                    <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </buttonConfiguration>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <integer key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="okayButtonPressed" destination="DMT-hm-mUV" eventType="touchUpInside" id="9yW-Ln-nac"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E4h-Zz-v4k">
-                                <rect key="frame" x="57" y="248" width="300" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="Kj4-8D-YD6"/>
-                                    <constraint firstAttribute="width" constant="300" id="sgG-0v-Jtw"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="italicSystem" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -528,24 +514,49 @@ In other words, no number can be repeated in any 3 × 3 box, row, or column.</st
                                     <constraint firstAttribute="width" secondItem="yAH-DL-LwD" secondAttribute="height" multiplier="207:220" id="ejB-Dw-TdD"/>
                                 </constraints>
                             </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="OSp-oG-ywP">
+                                <rect key="frame" x="40" y="271.5" width="334" height="138"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have solved" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="meZ-SO-jsy">
+                                        <rect key="frame" x="0.0" y="0.0" width="334" height="28.5"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="26"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kid Sudoku" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E4h-Zz-v4k">
+                                        <rect key="frame" x="0.0" y="36.5" width="334" height="28.5"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="26"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="in" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tGT-D5-hWJ">
+                                        <rect key="frame" x="0.0" y="73" width="334" height="28.5"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="26"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00 : 22 : 22" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="arp-R8-zDm">
+                                        <rect key="frame" x="0.0" y="109.5" width="334" height="28.5"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="26"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fFN-zn-ED1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="OSp-oG-ywP" firstAttribute="leading" secondItem="fFN-zn-ED1" secondAttribute="leading" constant="40" id="5GZ-fL-AzI"/>
                             <constraint firstAttribute="bottom" secondItem="yAH-DL-LwD" secondAttribute="bottom" id="BDd-Dp-D8I"/>
                             <constraint firstItem="yAH-DL-LwD" firstAttribute="trailing" secondItem="fFN-zn-ED1" secondAttribute="trailing" id="Bsd-st-NFv"/>
-                            <constraint firstItem="fFN-zn-ED1" firstAttribute="trailing" secondItem="DW8-Xf-9ov" secondAttribute="trailing" constant="60" id="Dib-4I-jNm"/>
-                            <constraint firstItem="DW8-Xf-9ov" firstAttribute="top" secondItem="fFN-zn-ED1" secondAttribute="top" id="Imn-KP-XeB"/>
+                            <constraint firstItem="DW8-Xf-9ov" firstAttribute="top" secondItem="fFN-zn-ED1" secondAttribute="top" constant="40" id="GFC-t1-gjJ"/>
                             <constraint firstItem="yAH-DL-LwD" firstAttribute="leading" secondItem="fFN-zn-ED1" secondAttribute="leading" id="OkH-c5-MBd"/>
-                            <constraint firstItem="E4h-Zz-v4k" firstAttribute="centerX" secondItem="kr0-as-EOy" secondAttribute="centerX" id="RbT-d6-yLi"/>
-                            <constraint firstItem="DW8-Xf-9ov" firstAttribute="leading" secondItem="fFN-zn-ED1" secondAttribute="leading" constant="60" id="phE-he-llj"/>
-                            <constraint firstItem="E4h-Zz-v4k" firstAttribute="centerY" secondItem="kr0-as-EOy" secondAttribute="centerY" constant="-100" id="rbC-gk-0cq"/>
+                            <constraint firstItem="fFN-zn-ED1" firstAttribute="trailing" secondItem="DW8-Xf-9ov" secondAttribute="trailing" constant="40" id="blP-Ex-ebR"/>
+                            <constraint firstItem="fFN-zn-ED1" firstAttribute="trailing" secondItem="OSp-oG-ywP" secondAttribute="trailing" constant="40" id="mTx-9T-j5Q"/>
+                            <constraint firstItem="OSp-oG-ywP" firstAttribute="top" secondItem="DW8-Xf-9ov" secondAttribute="bottom" constant="100" id="xLi-cc-4go"/>
+                            <constraint firstItem="DW8-Xf-9ov" firstAttribute="leading" secondItem="fFN-zn-ED1" secondAttribute="leading" constant="40" id="xgi-to-eUY"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="CAX-BX-A14"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="r6V-HI-g7w">
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="8P7-Em-kaO">
@@ -556,8 +567,9 @@ In other words, no number can be repeated in any 3 × 3 box, row, or column.</st
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="difficultyLabel" destination="E4h-Zz-v4k" id="YJs-hy-lYf"/>
                         <outlet property="gifView" destination="yAH-DL-LwD" id="fJi-ql-wiJ"/>
-                        <outlet property="textLabel" destination="E4h-Zz-v4k" id="lC0-qv-D4k"/>
+                        <outlet property="timerLabel" destination="arp-R8-zDm" id="iOl-W6-zMI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l0j-uY-szB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

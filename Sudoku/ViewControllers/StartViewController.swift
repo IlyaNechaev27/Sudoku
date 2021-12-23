@@ -8,17 +8,13 @@
 import UIKit
 
 class StartViewController: UIViewController {
-    
-    @IBOutlet weak var gifView: UIImageView!
-    
+    @IBOutlet var gifView: UIImageView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         gifView.loadGif(name: "load")
     }
-    
-    
-    
-    
+
     @IBAction func loadGame(_ sender: UIButton) {
         if StorageManager.sudokuModel == nil {
             let alert = UIAlertController(
@@ -32,11 +28,9 @@ class StartViewController: UIViewController {
             performSegue(withIdentifier: "toPuzzle", sender: nil)
         }
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let puzzleVC = segue.destination as? PuzzleViewController else { return }
         puzzleVC.sudoku = StorageManager.sudokuModel
     }
-    
-   
 }

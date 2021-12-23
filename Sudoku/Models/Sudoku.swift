@@ -54,6 +54,7 @@ public class Sudoku: NSObject, NSCoding {
     func isConflictingEntryAt(row: Int, col: Int) -> Bool {
         puzzle[row][col] == currentAnswer[row][col] ? false : true
     }
+    
     func setPencilAt(row: Int, col: Int) -> Bool {
         for n in 0...8 {
             if pencilPuzzle[row][col][n] == true {
@@ -66,6 +67,7 @@ public class Sudoku: NSObject, NSCoding {
     func printResult() {
         print(currentAnswer)
     }
+    
     func isSetPencil(n: Int, row: Int, col: Int) -> Bool {
         pencilPuzzle[row][col][n]
     }
@@ -124,10 +126,7 @@ public class Sudoku: NSObject, NSCoding {
     }
     
     func isEnd() -> Bool {
-        if let _ = findEmptyPosition(puzzle: puzzle) {
-            return false
-        }
-        return true
+        puzzle == currentAnswer
     }
     
     private func sudokuRule(r: Int, c: Int) -> Int {
@@ -219,7 +218,7 @@ public class Sudoku: NSObject, NSCoding {
             return _puzzle
         }
         let (x,y) = emptyPos
-        var possibleValues = findPossibleValues(puzzle: _puzzle, x: x, y: y)
+        var possibleValues = findPossibleValues(puzzle: _puzzle, row: x, col: y)
         possibleValues.shuffle()
         
         for possibleValue in possibleValues {
@@ -233,41 +232,23 @@ public class Sudoku: NSObject, NSCoding {
         return [[]]
     }
     
-    private func checkMove(x: Int, y: Int, value: Int) -> Bool {
-        checkRow(puzzle: puzzle, x: x, value: value) &&
-        checkCol(puzzle: puzzle, y: y, values: value) &&
-        checkBox(puzzle: puzzle, x: x, y: y, value: value)
+    private func getRow(puzzle: [[Int]], row: Int) -> [Int] {
+        puzzle[row]
     }
     
-    private func checkRow(puzzle: [[Int]], x: Int, value: Int) -> Bool{
-        getRow(puzzle: puzzle, x: x).contains(value)
-    }
-    
-    private func checkCol(puzzle: [[Int]], y: Int, values: Int) -> Bool {
-        getCol(puzzle: puzzle, y: y).contains(values)
-    }
-    
-    private func checkBox(puzzle: [[Int]], x: Int, y: Int, value: Int) -> Bool{
-        getBlock(puzzle: puzzle, x: x, y: y).contains(value)
-    }
-    
-    private func getRow(puzzle: [[Int]], x: Int) -> [Int] {
-        puzzle[x]
-    }
-    
-    private func getCol(puzzle: [[Int]], y: Int) -> [Int] {
+    private func getCol(puzzle: [[Int]], col: Int) -> [Int] {
         var result = [Int]()
         for row in puzzle {
-            result.append(row[y])
+            result.append(row[col])
         }
         return result
     }
     
-    private func getBlock(puzzle: [[Int]], x: Int, y: Int) -> [Int] {
+    private func getBlock(puzzle: [[Int]], row: Int, col: Int) -> [Int] {
         var result = [Int]()
         
-        let startX = x - x % size
-        let startY = y - y % size
+        let startX = row - row % size
+        let startY = col - col % size
         
         for i in 0..<size {
             for j in 0..<size {
@@ -278,11 +259,11 @@ public class Sudoku: NSObject, NSCoding {
         return result
     }
     
-    private func findPossibleValues(puzzle: [[Int]], x: Int, y: Int) -> [Int] {
+    private func findPossibleValues(puzzle: [[Int]], row: Int, col: Int) -> [Int] {
         var possible = Set(1..<sideLen + 1)
-        possible = possible.filter({ !getRow(puzzle: puzzle, x: x).contains($0)})
-        possible = possible.filter({ !getCol(puzzle: puzzle, y: y).contains($0)})
-        possible = possible.filter({ !getBlock(puzzle: puzzle, x: x, y: y).contains($0)})
+        possible = possible.filter({ !getRow(puzzle: puzzle, row: row).contains($0)})
+        possible = possible.filter({ !getCol(puzzle: puzzle, col: col).contains($0)})
+        possible = possible.filter({ !getBlock(puzzle: puzzle, row: row, col: col).contains($0)})
         
         return Array(possible).shuffled()
     }

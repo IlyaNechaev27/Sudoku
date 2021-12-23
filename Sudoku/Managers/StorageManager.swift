@@ -8,7 +8,6 @@
 import Foundation
 
 final class StorageManager {
-    
     private enum SettingsKeys: String {
         case userModel
     }
@@ -33,6 +32,4 @@ final class StorageManager {
             }
         }
     }
-    
-    
 }

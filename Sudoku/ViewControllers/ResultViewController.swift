@@ -10,21 +10,20 @@ import UIKit
 class ResultViewController: UIViewController {
     var timer: String!
     var difficulty: Difficulty!
-    @IBOutlet weak var gifView: UIImageView!
-    
-    @IBOutlet weak var textLabel: UILabel!
+    @IBOutlet var gifView: UIImageView!
+
+    @IBOutlet weak var difficultyLabel: UILabel!
+    @IBOutlet weak var timerLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.setHidesBackButton(true, animated: true);
-        textLabel.text = "You have solved \(difficulty!) Sudoku in \(timer!)"
+        navigationItem.setHidesBackButton(true, animated: true)
+        difficultyLabel.text = "\(difficulty!) Sudoku"
+        timerLabel.text = timer
         gifView.loadGif(name: "finish")
     }
+
     @IBAction func dismis(_ sender: Any) {
-        
-        self.navigationController?.popToRootViewController(animated: true)
-
-
+        navigationController?.popToRootViewController(animated: true)
     }
-    
 }

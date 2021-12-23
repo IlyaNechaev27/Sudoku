@@ -5,8 +5,8 @@
 //  Created by Илья Нечаев on 13.12.2021.
 //
 
-import UIKit
 import CoreData
+import UIKit
 
 class PuzzleViewController: UIViewController {
     var sudoku: Sudoku!
@@ -33,7 +33,6 @@ class PuzzleViewController: UIViewController {
 
         isPencilOn = false
         puzzleView.sudoku = sudoku
-        
     }
     
     @objc func timerCounter() {
@@ -181,6 +180,4 @@ class PuzzleViewController: UIViewController {
         resultVC.timer = timerLabel.title
         resultVC.difficulty = sudoku.difficulty
     }
-    
-    
 }

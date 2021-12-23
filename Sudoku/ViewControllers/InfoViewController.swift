@@ -12,5 +12,4 @@ class InfoViewController: UIViewController {
     @IBAction func okayButtonPressed() {
         dismiss(animated: true)
     }
-    
 }
