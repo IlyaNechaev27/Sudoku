@@ -24,9 +24,8 @@ class PuzzleViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        countForTimer = sudoku.timer
         StorageManager.sudokuModel = sudoku
-        
         timerLabel.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Arial", size: 20)!], for: UIControl.State.normal)
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerCounter), userInfo: nil, repeats: true)
         navigationItem.setHidesBackButton(true, animated: true)
@@ -66,10 +65,10 @@ class PuzzleViewController: UIViewController {
         if row != -1, col != -1 {
             if isPencilOn == false {
                 if !sudoku.numberIsFixedAt(row: row, col: col) && sudoku.getPuzzle()[row][col] == 0 {
-                    sudoku.makeMove(x: row, y: col, value: sender.tag)
+                    sudoku.makeMove(row: row, col: col, value: sender.tag)
                     refresh()
                 } else if !sudoku.numberIsFixedAt(row: row, col: col) || sudoku.getPuzzle()[row][col] == sender.tag {
-                    sudoku.makeMove(x: row, y: col, value: sender.tag)
+                    sudoku.makeMove(row: row, col: col, value: sender.tag)
                     refresh()
                 }
             } else {
@@ -144,7 +143,7 @@ class PuzzleViewController: UIViewController {
                     self.clueCount -= 1
                     let row = self.puzzleView.selected.row
                     let col = self.puzzleView.selected.col
-                    self.sudoku.getClue(x: row, y: col)
+                    self.sudoku.getClue(row: row, col: col)
                     self.refresh()
                 } else {
                     let clueAlert = UIAlertController(title: "You have no more clues left", message: "", preferredStyle: .alert)

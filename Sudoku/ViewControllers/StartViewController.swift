@@ -9,12 +9,15 @@ import UIKit
 
 class StartViewController: UIViewController {
     @IBOutlet var gifView: UIImageView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         gifView.loadGif(name: "load")
     }
-
+    
+    /// Загрузки игры из памяти
+    /// Если сохранённой игры нету, то выводит alert
+    /// - Parameter sender: <#sender description#>
     @IBAction func loadGame(_ sender: UIButton) {
         if StorageManager.sudokuModel == nil {
             let alert = UIAlertController(
