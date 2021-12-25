@@ -12,8 +12,9 @@ class PuzzleViewController: UIViewController {
     var sudoku: Sudoku!
     var isPencilOn = false
     var timer = Timer()
+    /// Счетчик секунд для таймера
     var countForTimer = 0
-    var timerCounting = true
+    /// Кол-во подсказок
     var clueCount = 3
     
     // Поле судоки
@@ -24,6 +25,7 @@ class PuzzleViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // После загрузки представления выполняются любые дополнительные настройки
         countForTimer = sudoku.timer
         StorageManager.sudokuModel = sudoku
         timerLabel.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Arial", size: 20)!], for: UIControl.State.normal)
@@ -120,6 +122,7 @@ class PuzzleViewController: UIViewController {
             self.refresh()
         }))
         
+        // Solve all
         alert.addAction(UIAlertAction(title: NSLocalizedString("Solve all", comment: "Default action"), style: .default, handler: { _ in
             self.performSegue(withIdentifier: "showResult", sender: nil)
         }))

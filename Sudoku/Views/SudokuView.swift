@@ -1,4 +1,4 @@
-//
+
 //  SudokuView.swift
 //  Sudoku
 //
@@ -9,8 +9,11 @@ import UIKit
 
 class SudokuView: UIView {
     var sudoku: Sudoku!
+    /// Текущая выделенная ячейка в головоломке
+    /// (-1 -> ячейка не выделена)
     var selected = (row: -1, col: -1)
     
+    /// Позволяет пользователю «выбрать» незафиксированную ячейку в сетке головоломки.
     @IBAction func handleTap(_ sender: UIGestureRecognizer) {
         let tapPoint = sender.location(in: self)
         let gridSize = (bounds.width < bounds.height) ? bounds.width : bounds.height
@@ -20,11 +23,15 @@ class SudokuView: UIView {
         let row = Int((tapPoint.y - gridOrigin.y)/d)
         
         if col >= 0, col < 9, row >= 0, row <= 9 {
+            // если внутри пазла
             if !sudoku.numberIsFixedAt(row: row, col: col) {
+                // если значение не зафиксировано
                 if row != selected.row || col != selected.col {
+                    // если не уже выбранная ячейка
                     selected.row = row
                     selected.col = col
                     setNeedsDisplay()
+                    // запрос на перерисовку PuzzleView
                 }
             }
         }
@@ -38,17 +45,19 @@ class SudokuView: UIView {
         return testFontSize*min(targetSize.width/strSize.width, targetSize.height/strSize.height)
     }
     
+    /// Рисование доски судоку. Текущее состояние головоломки хранится в свойстве "sudoku"
     override func draw(_ rect: CGRect) {
         let context = UIGraphicsGetCurrentContext()
         
+        /*Находим самый большой квадрат в границах обзора и используем его для определения
+    параметров сетки.
+         */
         let gridSize = bounds.width < bounds.height ? bounds.width : bounds.height
         let gridOrigin = CGPoint(x: (bounds.width - gridSize)/2, y: (bounds.height - gridSize)/2)
         let delta = gridSize/3
         let d = delta/3
         
-        //
-        // Fill selected cell (is one is selected).
-        //
+        // Заполняем выбранную ячейку (только одну).
         if selected.row >= 0 && selected.col >= 0 {
             UIColor(hexString: "786FF5").setFill()
             let x = gridOrigin.x + CGFloat(selected.col)*d
@@ -56,16 +65,13 @@ class SudokuView: UIView {
             context?.fill(CGRect(x: x, y: y, width: d, height: d))
         }
         
-        //
-        // Stroke outer puzzle rectangle
-        //
+        // Обводка внешнего прямоугольника головоломки rectangle
         context?.setLineWidth(6)
         UIColor(hexString: "786FF5").setStroke()
         context?.stroke(CGRect(x: gridOrigin.x, y: gridOrigin.y, width: gridSize, height: gridSize))
         
-        //
-        // Stroke major grid lines.
-        //
+        
+        // Обводка основных линий сетки.
         for i in 0 ..< 3 {
             let x = gridOrigin.x + CGFloat(i)*delta
             context?.move(to: CGPoint(x: x, y: gridOrigin.y))
@@ -79,9 +85,7 @@ class SudokuView: UIView {
             context?.strokePath()
         }
         
-        //
-        // Stroke minor grid lines.
-        //
+        // Обводка второстепенных линий сетки.
         context?.setLineWidth(3)
         for i in 0 ..< 3 {
             for j in 0 ..< 3 {
@@ -95,9 +99,7 @@ class SudokuView: UIView {
             }
         }
         
-        //
-        // Fetch/compute font attribute information.
-        //
+        // Получение / вычисление информации об атрибуте шрифта.
         let fontName = "Helvetica"
         let boldFontName = "Helvetica-Bold"
         let pencilFontName = "Helvetica-Light"
@@ -113,10 +115,7 @@ class SudokuView: UIView {
         let conflictAttributes = [NSAttributedString.Key.font: font!, NSAttributedString.Key.foregroundColor: UIColor.red]
         let pencilAttributes = [NSAttributedString.Key.font: pencilFont!, NSAttributedString.Key.foregroundColor: UIColor.black]
         
-        //
-        // Fill in puzzle numbers.
-        //
-        
+        // Заполнение пазла цифрами
         for row in 0 ..< 9 {
             for col in 0 ..< 9 {
                 var number: Int
