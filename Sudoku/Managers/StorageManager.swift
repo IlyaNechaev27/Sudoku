@@ -7,17 +7,22 @@
 
 import Foundation
 
+/// StorageManager:
+/// - сохраняет модель головоломки в памяти
+/// - отслеживает изменение модели и записывает изменения в памяти
 final class StorageManager {
     private enum SettingsKeys: String {
         case userModel
     }
     
     static var sudokuModel: Sudoku! {
+        // getter
         get {
             guard let savedData = UserDefaults.standard.object(forKey: SettingsKeys.userModel.rawValue) as? Data,
                   let decodedModel = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(savedData) as? Sudoku else { return nil }
             return decodedModel
         }
+        //setter
         set {
             let defaults = UserDefaults.standard
             let key = SettingsKeys.userModel.rawValue
